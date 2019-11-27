@@ -4,23 +4,25 @@ import { navigate } from 'gatsby';
 import AuthContext from '../context/auth-context';
 import { isLoggedIn } from '../utils/auth';
 
-const PrivateRoute = (props) => {
-  useContext(AuthContext);
+class PrivateRoute extends React.Component {
+  static contextType = AuthContext;
 
-  const {
-    component: Component,
-    location: pathname,
-    ...rest
-  } = props;
+  render() {
+    const {
+      component: Component,
+      location: pathname,
+      ...rest
+    } = this.props;
 
-  if (!isLoggedIn()) {
-    if (pathname !== `/app/login`) {
-      navigate(`/app/login`);
+    if (!isLoggedIn()) {
+      if (pathname !== `/app/login`) {
+        navigate(`/app/login`);
+      }
+      return null;
     }
-    return null;
+
+    return <Component {...rest} path={pathname.pathname} />
   }
-  
-  return <Component {...rest} path={pathname.pathname} />
 }
 
 PrivateRoute.propTypes = {
