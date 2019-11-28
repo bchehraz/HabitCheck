@@ -14,7 +14,7 @@ class PrivateRoute extends React.Component {
       ...rest
     } = this.props;
 
-    if (!this.context.token) {
+    if (!isLoggedIn()) {
       if (pathname !== `/app/login`) {
         navigate(`/app/login`);
       }
