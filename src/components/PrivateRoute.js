@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from 'gatsby-link';
+import { navigate } from 'gatsby';
 import AuthContext from '../context/auth-context';
 import { isLoggedIn } from '../utils/auth';
 
