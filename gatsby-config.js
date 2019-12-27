@@ -45,5 +45,12 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-resolve-src',
+      options: {
+        addSassLoader: false,
+      },
+    },
+    `gatsby-plugin-lodash`,
   ],
 }
