@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header
+  style={
+    Object {
+      "background": "white",
+      "marginBottom": "1.45rem",
+    }
+  }
+>
+  <div
+    className="sc-bdVaJa edqgWE"
+  >
+    <h1>
+      <a
+        href="/"
+        style={
+          Object {
+            "color": "#2D3142",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Default Starter
+      </a>
+    </h1>
+    <h3>
+      <a
+        href="/app"
+      >
+        Try out the app!
+      </a>
+    </h3>
+  </div>
+</header>
+`;

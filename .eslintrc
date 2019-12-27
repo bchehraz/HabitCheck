@@ -21,5 +21,8 @@
     "window": false,
     "module": false,
     "Promise": false
+  },
+  "env": {
+    "jest": true
   }
 }
