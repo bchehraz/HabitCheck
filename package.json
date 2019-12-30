@@ -28,7 +28,9 @@
     "react-icons": "^3.8.0",
     "react-navigation": "^4.0.10",
     "react-toggle-switch": "^3.0.4",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "typeface-montserrat": "0.0.75",
+    "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
