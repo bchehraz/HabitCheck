@@ -33,11 +33,14 @@
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^5.0.2",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.26",
+    "cypress": "^3.8.1",
     "eslint": "^6.6.0",
     "eslint-loader": "^3.0.2",
+    "eslint-plugin-cypress": "^2.8.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.16.0",
     "gatsby-plugin-eslint": "^2.0.8",
@@ -58,7 +61,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest"
+    "test": "jest",
+    "cy:open": "cypress open"
   },
   "husky": {
     "hooks": {
