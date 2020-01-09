@@ -77,13 +77,10 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "lint-staged": {
-    "*.{js,jsx,json,md}": [
+    "*.js": ["eslint", "jest --findRelatedTests"],
+    "*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
       "prettier --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
+      "git add",
     ]
   }
 }
