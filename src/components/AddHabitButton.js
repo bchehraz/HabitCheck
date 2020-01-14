@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { FaPlus } from 'react-icons/fa';
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import styled from "styled-components"
+import { FaPlus } from "react-icons/fa"
 
 const ButtonContainer = styled.div`
   margin-bottom: 14px;
   padding: 10px;
   width: 327px;
-  height: ${({ formOpen }) => (formOpen) ? "180px" : "53px"};
+  height: ${({ formOpen }) => (formOpen ? "180px" : "53px")};
 
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: flex-start;
 
-  border: 2px solid #2D3142;
+  border: 2px solid #2d3142;
   border-radius: 17px;
-  background-color: #2D3142;
+  background-color: #2d3142;
   color: white;
 
   -webkit-transition: all 300ms ease-out;
@@ -32,12 +32,12 @@ const ButtonContainer = styled.div`
     -ms-transform: translateX(120px);
     transform: translateX(120px);
   }
-`;
+`
 
 const IconContainer = styled.div`
   padding: 10px;
-  padding: ${({ formOpen }) => formOpen && '5px 10px' || 0};
-  position: absolute;;
+  padding: ${({ formOpen }) => (formOpen && "5px 10px") || 0};
+  position: absolute;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -64,34 +64,37 @@ const IconContainer = styled.div`
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-`;
+`
 
 const FormContainer = styled.form`
   margin-top: 2rem;
   padding: 10px 1rem;
   width: 100%;
-  opacity: ${({ formOpen }) => formOpen ? 1 : 0};
-  -webkit-transition: all ${({ formOpen }) => formOpen ? '600ms' : '300ms'} ease-out;
-  -moz-transition: all ${({ formOpen }) => formOpen ? '600ms' : '300ms'} ease-out;
-  -ms-transition: all ${({ formOpen }) => formOpen ? '600ms' : '300ms'} ease-out;
-  -o-transition: all ${({ formOpen }) => formOpen ? '600ms' : '300ms'} ease-out;
-  transition: all ${({ formOpen }) => formOpen ? '600ms' : '300ms'} ease-out;
-`;
+  opacity: ${({ formOpen }) => (formOpen ? 1 : 0)};
+  -webkit-transition: all ${({ formOpen }) => (formOpen ? "600ms" : "300ms")}
+    ease-out;
+  -moz-transition: all ${({ formOpen }) => (formOpen ? "600ms" : "300ms")}
+    ease-out;
+  -ms-transition: all ${({ formOpen }) => (formOpen ? "600ms" : "300ms")}
+    ease-out;
+  -o-transition: all ${({ formOpen }) => (formOpen ? "600ms" : "300ms")}
+    ease-out;
+  transition: all ${({ formOpen }) => (formOpen ? "600ms" : "300ms")} ease-out;
+`
 
 const TextInput = styled.input`
   padding: 10px 5px;
   width: 100%;
   margin: 0 auto;
   font-weight: 600;
-  ${({ error }) => error && 'border: 1px solid red;'}
-  ::placeholder {
-    ${({ error }) => error && 'color: red;'}
+  ${({ error }) => error && "border: 1px solid red;"} ::placeholder {
+    ${({ error }) => error && "color: red;"}
   }
-`;
+`
 
 const Button = styled.button`
   color: white;
-  background-color: #8ACB88;
+  background-color: #8acb88;
   font-weight: bold;
   width: 100%;
   padding: 10px;
@@ -101,7 +104,7 @@ const Button = styled.button`
   :active {
     outline: 1;
   }
-`;
+`
 
 /*
 
@@ -110,7 +113,7 @@ const Button = styled.button`
 
 */
 
-  /*
+/*
     TODO: add a form which onClick will trigger a contextual function which will be passed down from parent component(s), either HabitList or Today...
 
     TODO: Figure out what functions need to be added into context and figure out if AuthContext should be changed out for UserContext which would include all user data in general.
@@ -118,9 +121,9 @@ const Button = styled.button`
       -
   */
 
-const validForm = (formInput) => {
-  const { title } = formInput;
-  return title && title !== "";
+const validForm = formInput => {
+  const { title } = formInput
+  return title && title !== ""
 }
 
 const AddHabitButton = ({ handleAddHabit }) => {
@@ -128,37 +131,40 @@ const AddHabitButton = ({ handleAddHabit }) => {
     title: "",
   }
 
-  const [formOpen, setFormOpen] = useState(false);
-  const [formInput, setFormInput] = useState(initState);
-  const [error, setError] = useState(false);
+  const [formOpen, setFormOpen] = useState(false)
+  const [formInput, setFormInput] = useState(initState)
+  const [error, setError] = useState(false)
 
-  console.log(formInput.title);
   return (
-    <ButtonContainer formOpen={formOpen} onClick={() => {
-      if (!formOpen) {
-        console.log("<Action> Add Habit Button was clicked!");
-        setFormOpen(true);
-      }
-    }}>
+    <ButtonContainer
+      formOpen={formOpen}
+      onClick={() => {
+        if (!formOpen) {
+          console.log("<Action> Add Habit Button was clicked!")
+          setFormOpen(true)
+        }
+      }}
+    >
       <FormContainer formOpen={formOpen}>
-        <TextInput type="text"
+        <TextInput
+          type="text"
           value={formInput.title}
-          onChange={(e) => {
-            setFormInput({ ...formInput, title: e.target.value });
+          onChange={e => {
+            setFormInput({ ...formInput, title: e.target.value })
           }}
           placeholder="Habit Title"
           error={error}
         />
         <Button
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={e => {
+            e.preventDefault()
             if (validForm(formInput)) {
-              handleAddHabit(formInput.title);
-              setError(false);
-              setFormOpen(false);
-              setFormInput(initState);
+              handleAddHabit(formInput.title)
+              setError(false)
+              setFormOpen(false)
+              setFormInput(initState)
             } else {
-              setError(true);
+              setError(true)
             }
           }}
         >
@@ -168,26 +174,26 @@ const AddHabitButton = ({ handleAddHabit }) => {
 
       <IconContainer
         formOpen={formOpen}
-        className={(formOpen) && "iconContainerClose"}
+        className={formOpen && "iconContainerClose"}
         onClick={() => {
           if (formOpen) {
-            setFormOpen(false);
-            setError(false);
-            setFormInput(initState);
+            setFormOpen(false)
+            setError(false)
+            setFormInput(initState)
           }
         }}
       >
         <FaPlus
           size={25}
-          className={(formOpen) && "icon iconClose" || "icon"}
+          className={(formOpen && "icon iconClose") || "icon"}
         />
       </IconContainer>
     </ButtonContainer>
-  );
+  )
 }
 
 AddHabitButton.propTypes = {
   handleAddHabit: PropTypes.func.isRequired,
 }
 
-export default AddHabitButton;
+export default AddHabitButton
