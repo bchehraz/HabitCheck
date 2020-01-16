@@ -1,20 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components";
 
-import AppHeader from './AppHeader';
-import FooterNav from './FooterNav';
+import AppHeader from "./AppHeader"
+import FooterNav from "./FooterNav"
 import "./landing/layout.css"
 import "./layout.scss"
 
 const AppLayout = ({ children, path }) => {
-  let page = path.replace("/app/", "");
+  let page = path.replace("/app/", "")
   if (page === "/app" || page === "") {
-    page = "Today";
+    page = "Today"
   } else if (page === "stats") {
-    page = "Habit Stats";
+    page = "Habit Stats"
   } else {
-    page = "Your Journal";
+    page = "Your Journal"
   }
   return (
     <>
@@ -23,10 +22,10 @@ const AppLayout = ({ children, path }) => {
         style={{
           margin: `0 auto 5rem`,
           padding: 0,
-          maxWidth: '100%',
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          alignItems: 'center',
+          maxWidth: "100%",
+          display: "flex",
+          flexFlow: "column nowrap",
+          alignItems: "center",
         }}
       >
         <main>{children}</main>
@@ -41,4 +40,4 @@ AppLayout.propTypes = {
   path: PropTypes.string.isRequired,
 }
 
-export default AppLayout;
+export default AppLayout
