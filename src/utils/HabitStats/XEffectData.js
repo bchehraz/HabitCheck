@@ -53,6 +53,7 @@ export const getXEffectData = (progressArray, checked, maxSize) => {
     let arr = new Array(maxSize - 1)
     arr.fill(status.VOID, 0, maxSize - 1)
     output[0] = [...output[0], ...arr]
+    console.log("Data Output: " + output)
     return output
   }
 
