@@ -175,6 +175,7 @@ const AddHabitButton = ({ handleAddHabit }) => {
       <IconContainer
         formOpen={formOpen}
         className={formOpen && "iconContainerClose"}
+        data-testid="AddHabitButtonClose"
         onClick={() => {
           if (formOpen) {
             setFormOpen(false)
