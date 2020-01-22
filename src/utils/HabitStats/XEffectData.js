@@ -14,10 +14,6 @@ import _ from "lodash"
   - Checked (whether or not it is checked today)
 */
 
-export const daysInMonth = (month, year) => {
-  return new Date(year, month, 0).getDate()
-}
-
 //An item can only be one of the following status values
 const status = {
   CURRENT: 3,
@@ -35,9 +31,6 @@ getXEffectData() args ->
 export const getXEffectData = (progressArray, checked, maxSize) => {
   let progress = _.cloneDeep(progressArray)
 
-  console.log("Called getXEffectData => ")
-  console.log("Data In: ", progress)
-
   //Output of this should contain an array of arrays of length maxSize
   let output = [[]]
 
@@ -45,15 +38,12 @@ export const getXEffectData = (progressArray, checked, maxSize) => {
   let streakCount = 0
   let index = 0
 
-  console.log("progress.length", progress.length)
   if (progress.length === 0) {
     //if the habit has not been checked yet...
-    console.log("The Length is 0")
     output[0][0] = status.CURRENT
     let arr = new Array(maxSize - 1)
     arr.fill(status.VOID, 0, maxSize - 1)
     output[0] = [...output[0], ...arr]
-    console.log("Data Output: " + output)
     return output
   }
 
@@ -64,14 +54,11 @@ export const getXEffectData = (progressArray, checked, maxSize) => {
     // let status = 0;
     let positiveStreak = streak >= 0
     if (streakCount === 0) {
-      console.log(streak)
       streakCount = Math.abs(streak)
     }
 
     remainingLength = maxSize - index
-    console.log("Remaining Length: ", remainingLength)
     if (streakCount >= remainingLength) {
-      console.log("Entered If Statement", streakCount >= remainingLength)
       streakCount -= remainingLength
       let arr = new Array(remainingLength)
       arr.fill(
@@ -83,7 +70,6 @@ export const getXEffectData = (progressArray, checked, maxSize) => {
       output.unshift([])
       index = 0
     } else {
-      console.log("Entered Else", streakCount >= remainingLength)
       let arr = new Array(streakCount)
       arr.fill(
         (positiveStreak && status.CHECKED) || status.MISSED,
@@ -106,9 +92,6 @@ export const getXEffectData = (progressArray, checked, maxSize) => {
     arr.fill(status.VOID, 0, remainingLength)
     output[0] = [...output[0], ...arr]
   }
-  console.log("Data Out: ", output)
-
-  console.log("=> End of getXEffectData")
   return output
 }
 
