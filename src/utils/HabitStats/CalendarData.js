@@ -20,13 +20,10 @@ export const daysInMonth = (month, year) => {
   return new Date(year, month, 0).getDate()
 }
 
-export const getCalendarData = (
-  progressArray,
-  checked,
-  todaysDate = new Date()
-) => {
+export const getCalendarData = (progressArray, checked) => {
   let progress = _.cloneDeep(progressArray)
 
+  let todaysDate = new Date()
   //const todaysDate = new Date("12/23/2019");
   let date = new Date(todaysDate)
 
