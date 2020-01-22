@@ -1,4 +1,4 @@
-import { getXEffectData } from "../../HabitStats/XEffectData"
+import { getXEffectData } from "../XEffectData"
 import { data } from "../../static/updatedDataSet1"
 
 // Obviously getXEffectDAta doesn't care what day it is, but

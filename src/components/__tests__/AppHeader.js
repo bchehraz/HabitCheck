@@ -1,13 +1,11 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import Header from "../landing/header"
+import AppHeader from "../AppHeader"
 
 describe("Header", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<Header siteTitle="Default Starter" />)
-      .toJSON()
+    const tree = renderer.create(<AppHeader title="HabitCheck" />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
