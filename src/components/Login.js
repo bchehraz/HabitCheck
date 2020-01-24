@@ -6,8 +6,9 @@ import { login } from "../utils/auth"
 const Login = () => (
   <AuthConsumer>
     {context => (
-      <div>
-        <h2>{`You must be logged in to use the app!`}</h2>
+      <div style={{ padding: 20 }}>
+        <h2>{`You must log in to use the app`}</h2>
+        <p>This is a fake login page demonstrating client-only routing</p>
 
         <h2>
           <Link
@@ -36,11 +37,11 @@ const Login = () => (
               )
             }}
           >
-            {`Click here to log in!`}
+            {`(just click here)`}
           </Link>
         </h2>
 
-        <Link to="/">Go Home</Link>
+        <Link to="/">or go home</Link>
       </div>
     )}
   </AuthConsumer>
