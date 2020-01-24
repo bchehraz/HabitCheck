@@ -110,7 +110,7 @@ const HabitStats = ({ path }) => {
     setPage(newPage)
 
     //if CalendarView
-    if (view) {
+    if (!view) {
       if (newPage === 0) {
         setDate(todaysDate)
       } else {
