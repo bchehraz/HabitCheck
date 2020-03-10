@@ -13,12 +13,14 @@ const Row = styled.div`
 `
 
 const CalendarRow = ({ data }) => (
-  <Row>
-    {data.map(({ day, status, onClick }, j) => (
-      <CalendarItem key={j} status={status ? status : 0} onClick={onClick}>
-        <p className="number">{day}</p>
-      </CalendarItem>
-    ))}
+  <Row className="calendarRow">
+    {data.map(({ day, status, onClick }, j) => {
+      return (
+        <CalendarItem key={j} status={status ? status : 0} onClick={onClick}>
+          <p className="number">{day}</p>
+        </CalendarItem>
+      )
+    })}
   </Row>
 )
 

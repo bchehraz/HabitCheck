@@ -15,8 +15,21 @@
 
 // Import commands.js using ES2015 syntax:
 //import './commands'
-import '@testing-library/cypress/add-commands';
+import "@testing-library/cypress/add-commands"
 
+let LOCAL_STORAGE_MEMORY = {}
+
+Cypress.Commands.add("saveLocalStorage", () => {
+  Object.keys(localStorage).forEach(key => {
+    LOCAL_STORAGE_MEMORY[key] = localStorage[key]
+  })
+})
+
+Cypress.Commands.add("restoreLocalStorage", () => {
+  Object.keys(LOCAL_STORAGE_MEMORY).forEach(key => {
+    localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
+  })
+})
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

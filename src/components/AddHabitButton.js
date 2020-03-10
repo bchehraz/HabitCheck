@@ -137,6 +137,7 @@ const AddHabitButton = ({ handleAddHabit }) => {
 
   return (
     <ButtonContainer
+      className="addHabitButton"
       formOpen={formOpen}
       onClick={() => {
         if (!formOpen) {
@@ -147,6 +148,7 @@ const AddHabitButton = ({ handleAddHabit }) => {
     >
       <FormContainer formOpen={formOpen}>
         <TextInput
+          className="habitTitleInput"
           type="text"
           value={formInput.title}
           onChange={e => {

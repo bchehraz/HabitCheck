@@ -10,7 +10,7 @@ const HabitListContainer = styled.div`
 `
 
 const HabitList = ({ habits, handleAddHabit, checkHabit, uncheckHabit }) => (
-  <HabitListContainer>
+  <HabitListContainer className="habitList">
     <AddHabitButton handleAddHabit={handleAddHabit} />
     {habits.unchecked.map((habit, index) => {
       const { title } = habit

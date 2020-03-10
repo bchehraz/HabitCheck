@@ -33,7 +33,7 @@ Array [
     </main>
   </div>,
   <div
-    className="sc-bwzfXH cPRPov"
+    className="sc-bwzfXH hCiwAb"
   >
     <div
       className="sc-htpNat hMjIwR footer"
@@ -42,7 +42,7 @@ Array [
         href="/app/stats"
       >
         <div
-          className="sc-bxivhb dQxvwo"
+          className="sc-bxivhb dQxvwo habitStats"
         >
           <svg
             fill="currentColor"
@@ -69,12 +69,13 @@ Array [
         href="/app/"
       >
         <div
-          className="sc-bxivhb bEdBIT"
+          className="sc-bxivhb bEdBIT today"
         >
           <div
-            className="sc-ifAKCX hlPkby"
+            className="sc-ifAKCX biWapd"
           />
           <svg
+            className="todayIcon"
             fill="none"
             height={40}
             size={40}
@@ -104,9 +105,10 @@ Array [
         href="/app/journal"
       >
         <div
-          className="sc-bxivhb dQxvwo"
+          className="sc-bxivhb dQxvwo yourJournal"
         >
           <svg
+            className="journalIcon"
             fill="currentColor"
             height={32}
             size={32}
@@ -165,7 +167,7 @@ Array [
     </main>
   </div>,
   <div
-    className="sc-bwzfXH cPRPov"
+    className="sc-bwzfXH hCiwAb"
   >
     <div
       className="sc-htpNat hMjIwR footer"
@@ -174,7 +176,7 @@ Array [
         href="/app/stats"
       >
         <div
-          className="sc-bxivhb dQxvwo"
+          className="sc-bxivhb dQxvwo habitStats"
         >
           <svg
             fill="currentColor"
@@ -201,9 +203,10 @@ Array [
         href="/app/"
       >
         <div
-          className="sc-bxivhb dQxvwo"
+          className="sc-bxivhb dQxvwo today"
         >
           <svg
+            className="todayIcon"
             fill="none"
             height={32}
             size={32}
@@ -233,12 +236,13 @@ Array [
         href="/app/journal"
       >
         <div
-          className="sc-bxivhb bEdBIT"
+          className="sc-bxivhb bEdBIT yourJournal"
         >
           <div
-            className="sc-ifAKCX hlPkby"
+            className="sc-ifAKCX biWapd"
           />
           <svg
+            className="journalIcon"
             fill="currentColor"
             height={40}
             size={40}
@@ -297,7 +301,7 @@ Array [
     </main>
   </div>,
   <div
-    className="sc-bwzfXH cPRPov"
+    className="sc-bwzfXH hCiwAb"
   >
     <div
       className="sc-htpNat hMjIwR footer"
@@ -306,10 +310,10 @@ Array [
         href="/app/stats"
       >
         <div
-          className="sc-bxivhb bEdBIT"
+          className="sc-bxivhb bEdBIT habitStats"
         >
           <div
-            className="sc-ifAKCX hlPkby"
+            className="sc-ifAKCX biWapd"
           />
           <svg
             fill="currentColor"
@@ -336,9 +340,10 @@ Array [
         href="/app/"
       >
         <div
-          className="sc-bxivhb dQxvwo"
+          className="sc-bxivhb dQxvwo today"
         >
           <svg
+            className="todayIcon"
             fill="none"
             height={32}
             size={32}
@@ -368,9 +373,10 @@ Array [
         href="/app/journal"
       >
         <div
-          className="sc-bxivhb dQxvwo"
+          className="sc-bxivhb dQxvwo yourJournal"
         >
           <svg
+            className="journalIcon"
             fill="currentColor"
             height={32}
             size={32}

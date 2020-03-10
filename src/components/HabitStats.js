@@ -12,7 +12,7 @@ import Spinner from "./Spinner"
 
 import AuthContext from "../context/auth-context"
 
-import { getCalendarData } from "utils/HabitStats/CalendarData"
+import { getCalendarData } from "utils/HabitStats/Calendar"
 import { getXEffectData } from "utils/HabitStats/XEffectData"
 
 const StatusContainer = styled.div`
@@ -32,10 +32,6 @@ const HabitStats = ({ path }) => {
 
   const [view, setView] = useState(false)
   const [selected, setSelected] = useState(0)
-  const [page, setPage] = useState(0)
-  const todaysDate = new Date()
-  //const todaysDate = new Date("12/23/2019");
-  const [date, setDate] = useState(todaysDate)
   const [habitData, setHabitData] = useState([])
   const [calendarData, setCalendarData] = useState([])
   const [xEffectData, setXEffectData] = useState([])
@@ -50,8 +46,8 @@ const HabitStats = ({ path }) => {
     }
     data = data.sort((a, b) => a.title.localeCompare(b.title))
     setHabitData([...data])
-    console.log(`Habit Stats : useEffect => `)
-    console.log(data)
+    // console.log(`Habit Stats : useEffect => `)
+    // console.log(data)
 
     // CalendarView or XEffectView ?
     setView(viewPreference)
@@ -75,7 +71,7 @@ const HabitStats = ({ path }) => {
         setXEffectData(getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE))
       }
     }
-    console.log(`=> End of useEffect`)
+    // console.log(`=> End of useEffect`)
   }, [checked, unchecked, viewPreference, userSelected])
 
   if (habitData.length === 0) {
@@ -85,39 +81,6 @@ const HabitStats = ({ path }) => {
         <h3>{`Add a habit to begin tracking data`}</h3>
       </AppLayout>
     )
-  }
-
-  const onNextPage = () => {
-    const newPage = page - 1
-    setPage(newPage)
-
-    //if CalendarView...
-    if (!view) {
-      //Adjust the date value in state to reflect a changing page
-      if (newPage === 0) {
-        setDate(todaysDate)
-      } else {
-        date.setDate(32)
-        date.setDate(32)
-        date.setDate(0)
-        setDate(date)
-      }
-    }
-  }
-
-  const onPrevPage = () => {
-    const newPage = page + 1
-    setPage(newPage)
-
-    //if CalendarView
-    if (!view) {
-      if (newPage === 0) {
-        setDate(todaysDate)
-      } else {
-        date.setDate(0)
-        setDate(date)
-      }
-    }
   }
 
   const onCheckHandler = () => {
@@ -131,8 +94,6 @@ const HabitStats = ({ path }) => {
   }
 
   const toggleView = () => {
-    setPage(0)
-
     const { index, isChecked } = habitMap[habitData[selected].title]
     const { progress } = (isChecked && checked[index]) || unchecked[index]
     if (!view) {
@@ -160,8 +121,6 @@ const HabitStats = ({ path }) => {
             onSelect={e => {
               setSelected(e.target.value)
               context.setSelectedHabit(e.target.value)
-              setPage(0)
-              setDate(todaysDate)
 
               const { index, isChecked } = habitMap[
                 habitData[e.target.value].title
@@ -185,42 +144,30 @@ const HabitStats = ({ path }) => {
       </StatusContainer>
       {view ? (
         <XEffectView
-          //aaaaaahhhh
-          data={xEffectData[page] || []}
+          data={xEffectData}
           size={{ col: MAX_XEFFECT_SIZE / 5, row: MAX_XEFFECT_SIZE / 5 }}
-          onPrevPage={onPrevPage}
-          onNextPage={onNextPage}
-          page={page}
-          pageMax={xEffectData.length - 1}
           onCheck={onCheckHandler}
           onUncheck={onUncheckHandler}
         />
       ) : (
         <CalendarView
-          date={date}
-          data={calendarData[page] || []}
-          page={page}
-          pageMax={calendarData.length - 1}
-          onPrevPage={onPrevPage}
-          onNextPage={onNextPage}
+          data={calendarData}
           onCheck={onCheckHandler}
           onUncheck={onUncheckHandler}
         />
       )}
-      <div>
-        <StatHighlight
-          title="Current Streak"
-          statValue={(streak > 0 && streak) || 0}
-          primaryColor="rgba(138, 203, 136, 0.25)"
-          secondaryColor="#8ACB88"
-        />
-        <StatHighlight
-          title="Best Streak"
-          statValue={bestStreak}
-          primaryColor="rgba(102, 199, 244, 0.25)"
-          secondaryColor="#66C7F4"
-        />
-      </div>
+      <StatHighlight
+        title="Current Streak"
+        statValue={(streak > 0 && streak) || 0}
+        primaryColor="rgba(138, 203, 136, 0.25)"
+        secondaryColor="#8ACB88"
+      />
+      <StatHighlight
+        title="Best Streak"
+        statValue={bestStreak}
+        primaryColor="rgba(102, 199, 244, 0.25)"
+        secondaryColor="#66C7F4"
+      />
     </AppLayout>
   )
 }

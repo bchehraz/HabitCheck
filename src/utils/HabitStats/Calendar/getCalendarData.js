@@ -16,12 +16,10 @@ import _ from "lodash"
   - Checked (whether or not it is checked today)
 */
 
-export const daysInMonth = (month, year) => {
-  return new Date(year, month, 0).getDate()
-}
-
-export const getCalendarData = (progressArray, checked) => {
+const getCalendarData = (progressArray, checked) => {
   let progress = _.cloneDeep(progressArray)
+
+  // console.log("<TEST> PROGRESS: ", progressArray)
 
   let todaysDate = new Date()
   //const todaysDate = new Date("12/23/2019");
@@ -91,8 +89,11 @@ export const getCalendarData = (progressArray, checked) => {
     }
   }
 
+  // console.log("<TEST> CALENDAR DATA: ", data)
   return data
 }
+
+export default getCalendarData
 
 /*
   Example Output =>

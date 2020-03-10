@@ -9,7 +9,7 @@ exports[`Header renders correctly 1`] = `
       HabitCheck
     </h1>
     <p>
-      Wednesday, January 22 2020
+      Wednesday, December 25 2019
     </p>
   </div>
 </header>

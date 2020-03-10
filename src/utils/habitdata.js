@@ -84,8 +84,8 @@ export const handleCheckHabit = habitIndex => {
   data.habits.map = { ...newMap }
 
   setUserData(data)
-  console.log("Checked Off > ")
-  console.log(data.habits)
+  // console.log("Checked Off > ")
+  // console.log(data.habits)
   return data.habits
 }
 
@@ -131,9 +131,9 @@ export const handleUncheckHabit = habitIndex => {
     progress.pop()
   }
 
-  console.log("<Uncheck> Uncheck Function")
-  console.log("Current Streak" + current.streak)
-  console.log("Best Streak" + habit.bestStreak)
+  // console.log("<Uncheck> Uncheck Function")
+  // console.log("Current Streak" + current.streak)
+  // console.log("Best Streak" + habit.bestStreak)
   if (current.streak === habit.bestStreak) {
     //check to see if the current streak IS the best streak value
     if (habit.bestStreakDate) {
@@ -149,7 +149,7 @@ export const handleUncheckHabit = habitIndex => {
         const yesterday = new Date()
         yesterday.setDate(today.getDate() - 1)
         habit.bestStreakDate = yesterday
-        console.log(habit.bestStreakDate)
+        // console.log(habit.bestStreakDate)
       }
     }
   }
@@ -167,8 +167,8 @@ export const handleUncheckHabit = habitIndex => {
   data.habits.map = { ...getNewHabitMap(data.habits) }
 
   setUserData(data)
-  console.log("Unchecked >")
-  console.log(data.habits)
+  // console.log("Unchecked >")
+  // console.log(data.habits)
   return data.habits
 }
 

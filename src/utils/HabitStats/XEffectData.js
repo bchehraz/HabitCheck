@@ -32,66 +32,36 @@ export const getXEffectData = (progressArray, checked, maxSize) => {
   let progress = _.cloneDeep(progressArray)
 
   //Output of this should contain an array of arrays of length maxSize
-  let output = [[]]
-
-  let page = 0
-  let streakCount = 0
-  let index = 0
+  let output = []
 
   if (progress.length === 0) {
     //if the habit has not been checked yet...
-    output[0][0] = status.CURRENT
-    let arr = new Array(maxSize - 1)
-    arr.fill(status.VOID, 0, maxSize - 1)
-    output[0] = [...output[0], ...arr]
+    output.push([status.CURRENT, ...new Array(maxSize - 1).fill(status.VOID)])
     return output
   }
 
-  let remainingLength = 0
-
-  while (progress.length !== 0) {
-    const { streak } = progress[0]
-    // let status = 0;
-    let positiveStreak = streak >= 0
-    if (streakCount === 0) {
-      streakCount = Math.abs(streak)
+  let arr = []
+  progress.forEach(obj => {
+    const { streak } = obj
+    for (let i = 0; i < Math.abs(streak); i++) {
+      if (streak < 0) {
+        arr.push(status.MISSED)
+      } else {
+        arr.push(status.CHECKED)
+      }
+      if (arr.length === maxSize) {
+        output.unshift(arr.splice(0, maxSize))
+      }
     }
-
-    remainingLength = maxSize - index
-    if (streakCount >= remainingLength) {
-      streakCount -= remainingLength
-      let arr = new Array(remainingLength)
-      arr.fill(
-        (positiveStreak && status.CHECKED) || status.MISSED,
-        0,
-        remainingLength
-      )
-      output[0] = [...output[0], ...arr]
-      output.unshift([])
-      index = 0
-    } else {
-      let arr = new Array(streakCount)
-      arr.fill(
-        (positiveStreak && status.CHECKED) || status.MISSED,
-        0,
-        streakCount
-      )
-      output[0] = [...output[0], ...arr]
-      index += streakCount
-      streakCount = 0
-      progress.shift()
-    }
-  }
+  })
   if (!checked) {
-    output[0][index] = status.CURRENT
-    index++
+    arr.push(status.CURRENT)
   }
-  remainingLength = maxSize - index
-  if (remainingLength > 0) {
-    let arr = new Array(remainingLength)
-    arr.fill(status.VOID, 0, remainingLength)
-    output[0] = [...output[0], ...arr]
+  if (arr.length > 0) {
+    let remainingLength = maxSize - arr.length
+    output.unshift([...arr, ...new Array(remainingLength).fill(status.VOID)])
   }
+
   return output
 }
 

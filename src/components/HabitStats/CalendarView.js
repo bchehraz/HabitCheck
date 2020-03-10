@@ -1,26 +1,47 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 import Calendar from "./Calendar"
 
-const CalendarView = ({
-  date,
-  data,
-  page,
-  onPrevPage,
-  onNextPage,
-  pageMax,
-  onCheck,
-  onUncheck,
-}) => {
+const CalendarView = ({ data, onCheck, onUncheck }) => {
+  const today = new Date()
+  const [date, setDate] = useState(today)
+  const [page, setPage] = useState(0)
+
+  const onNextPage = () => {
+    const newPage = page - 1
+    setPage(newPage)
+
+    if (newPage === 0) {
+      setDate(today)
+    } else {
+      date.setDate(32)
+      date.setDate(32)
+      date.setDate(0)
+      setDate(date)
+    }
+  }
+
+  const onPrevPage = () => {
+    const newPage = page + 1
+    setPage(newPage)
+
+    if (newPage === 0) {
+      setDate(today)
+    } else {
+      date.setDate(0)
+      setDate(date)
+    }
+  }
+
   return (
     <Calendar
-      calendarData={data}
+      calendarData={data[page] || []}
       date={date}
       onClickLeft={onPrevPage}
       onClickRight={onNextPage}
       page={page}
-      pageMax={pageMax}
+      pageMax={data.length - 1}
       onCheck={onCheck}
       onUncheck={onUncheck}
     />
@@ -29,11 +50,6 @@ const CalendarView = ({
 
 CalendarView.propTypes = {
   data: PropTypes.array.isRequired,
-  date: PropTypes.object.isRequired,
-  page: PropTypes.number.isRequired,
-  onPrevPage: PropTypes.func.isRequired,
-  onNextPage: PropTypes.func.isRequired,
-  pageMax: PropTypes.number.isRequired,
   onCheck: PropTypes.func.isRequired,
   onUncheck: PropTypes.func.isRequired,
 }
