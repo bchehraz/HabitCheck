@@ -19,6 +19,7 @@ const HabitList = ({ habits, handleAddHabit, checkHabit, uncheckHabit }) => (
         const { length } = habit.progress
         streak = habit.progress[length - 1].streak
       }
+      const onClick = () => checkHabit(index)
       return (
         <HabitListItem
           key={index}
@@ -26,9 +27,7 @@ const HabitList = ({ habits, handleAddHabit, checkHabit, uncheckHabit }) => (
           streak={streak}
           isNew={streak === 0}
           isChecked={false}
-          onClick={() => {
-            checkHabit(index)
-          }}
+          onClick={onClick}
         />
       )
     })}
@@ -36,7 +35,7 @@ const HabitList = ({ habits, handleAddHabit, checkHabit, uncheckHabit }) => (
       const { length } = habit.progress
       const { title, progress } = habit
       const { streak } = progress[length - 1]
-
+      const onClick = () => uncheckHabit(index)
       return (
         <HabitListItem
           key={index}
@@ -44,9 +43,7 @@ const HabitList = ({ habits, handleAddHabit, checkHabit, uncheckHabit }) => (
           streak={streak}
           isNew={streak === 0}
           isChecked={true}
-          onClick={() => {
-            uncheckHabit(index)
-          }}
+          onClick={onClick}
         />
       )
     })}
@@ -56,6 +53,8 @@ const HabitList = ({ habits, handleAddHabit, checkHabit, uncheckHabit }) => (
 HabitList.propTypes = {
   habits: PropTypes.object.isRequired,
   handleAddHabit: PropTypes.func.isRequired,
+  checkHabit: PropTypes.func,
+  uncheckHabit: PropTypes.func,
 }
 
 export default HabitList
