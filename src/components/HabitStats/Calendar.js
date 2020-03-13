@@ -76,7 +76,7 @@ const Calendar = ({
     const data = formatCalendarData(
       calendarData,
       date,
-      page,
+      page === 0,
       onCheck,
       onUncheck
     )
