@@ -21,6 +21,8 @@ export const handleCheckHabit = habitIndex => {
     return false
   }
 
+  // Catch the case where the user attempts to check a habit,
+  // where the habits have yet to be updated
   let today = new Date()
   if (data.habits.lastUpdate !== null) {
     const date = new Date(data.habits.lastUpdate)
@@ -36,7 +38,12 @@ export const handleCheckHabit = habitIndex => {
       ...habit,
       progress: [
         {
-          date: today.toLocaleDateString(),
+          date: Date.UTC(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate(),
+            today.getUTCHours()
+          ),
           streak,
         },
       ],
@@ -48,7 +55,12 @@ export const handleCheckHabit = habitIndex => {
 
     if (current.streak < 0) {
       progress.push({
-        date: today.toLocaleDateString(),
+        date: Date.UTC(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate(),
+          today.getUTCHours()
+        ),
         streak,
       })
     } else if (current.streak > 0) {
@@ -67,7 +79,13 @@ export const handleCheckHabit = habitIndex => {
   if (streak > habit.bestStreak) {
     //set a value in the progress marking the current
     habit.bestStreak += 1
-    habit.bestStreakDate = new Date().toLocaleDateString()
+    let now = new Date()
+    habit.bestStreakDate = Date.UTC(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      now.getUTCHours()
+    )
   }
   data.habits.unchecked.splice(habitIndex, 1)
   data.habits.checked = [habit, ...data.habits.checked]
@@ -140,7 +158,8 @@ export const handleUncheckHabit = habitIndex => {
       //only if the newBestStreak is checked, subtract 1 from the best streak as well.
       // if newBestStreak is not set, it means a previous streak had set this new streak.
       // This is unique to unchecking an item that is already checked
-      if (today.toLocaleDateString() === habit.bestStreakDate) {
+      let bestStreakDate = new Date(habit.bestStreakDate)
+      if (today.setHours(0, 0, 0, 0) === bestStreakDate.setHours(0, 0, 0, 0)) {
         habit.bestStreak -= 1
         // Since we are unchecking a current best streak,
         // set the bestStreakDate to yesterday...?
@@ -148,7 +167,13 @@ export const handleUncheckHabit = habitIndex => {
         // TODO: This has to be done in a cleaner way somehow if it's to be used as a useful data point to display to the user. It *could* be used to show the date the user reached this best streak. Really useful? Not really...
         const yesterday = new Date()
         yesterday.setDate(today.getDate() - 1)
-        habit.bestStreakDate = yesterday
+        // habit.bestStreakDate = yesterday
+        habit.bestStreakDate = Date.UTC(
+          yesterday.getFullYear(),
+          yesterday.getMonth(),
+          yesterday.getDate(),
+          yesterday.getUTCHours()
+        )
         // console.log(habit.bestStreakDate)
       }
     }
@@ -177,7 +202,12 @@ export const addHabit = title => {
 
   const newHabit = {
     title,
-    startDate: new Date().toLocaleDateString(),
+    startDate: Date.UTC(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      new Date().getDate(),
+      new Date().getUTCHours()
+    ),
     progress: [],
     bestStreak: 0,
   }

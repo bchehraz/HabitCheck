@@ -1,26 +1,52 @@
+let dates = [
+  new Date("12/02/2019"),
+  new Date("12/02/2019"),
+  new Date("10/25/2019"),
+  new Date("11/28/2019"),
+  new Date("11/29/2019"),
+  new Date("12/01/2019"),
+  new Date("12/01/2019"),
+  new Date("12/01/2019"),
+  new Date("12/01/2019"),
+]
+
+let utcStartDate = []
+for (let i = 0; i < dates.length; i++) {
+  utcStartDate.push(
+    Date.UTC(
+      dates[i].getFullYear(),
+      dates[i].getMonth(),
+      dates[i].getDate(),
+      dates[i].getUTCHours()
+    )
+  )
+}
+let hour = new Date("2/2/2020").getUTCHours()
+// Date.UTC(2020, 11, 2, hour)
+
 export const data = {
   habits: {
     unchecked: [
       {
         title: "Work on HabitCheck",
-        startDate: "12/02/2019",
+        startDate: Date.UTC(2019, 11, 2, hour),
         bestStreak: 0,
         progress: [],
       },
       {
         title: "TEST_DATA_1",
-        startDate: "12/02/2019",
+        startDate: Date.UTC(2019, 11, 2, hour),
         bestStreak: 0,
-        progress: [{ date: "2/6/2020", streak: 24 }],
+        progress: [{ date: Date.UTC(2020, 1, 6, hour), streak: 24 }],
       },
       {
         title: "Quit Smoking",
-        startDate: "10/25/2019",
+        startDate: Date.UTC(2019, 9, 25, hour),
         bestStreak: 40,
-        bestStreakDate: "12/03/2019",
+        bestStreakDate: Date.UTC(2019, 11, 3, hour),
         progress: [
           {
-            date: "10/25/2019",
+            date: Date.UTC(2019, 9, 25, hour),
             streak: 40,
           },
           //{ date: "12/4/2019", streak: -1 }
@@ -28,70 +54,70 @@ export const data = {
       },
       {
         title: "Meditate",
-        startDate: "11/28/2019",
+        startDate: Date.UTC(2019, 10, 28, hour),
         bestStreak: 1,
-        bestStreakDate: "11/28/2019",
+        bestStreakDate: Date.UTC(2019, 10, 28, hour),
         progress: [
-          { date: "11/28/2019", streak: 1 },
-          { date: "11/29/2019", streak: -3 },
+          { date: Date.UTC(2019, 10, 28, hour), streak: 1 },
+          { date: Date.UTC(2019, 10, 29, hour), streak: -3 },
         ],
       },
       {
         title: "Sleep on time",
-        startDate: "11/29/2019",
+        startDate: Date.UTC(2019, 10, 29, hour),
         bestStreak: 1,
-        bestStreakDate: "11/30/2019",
+        bestStreakDate: Date.UTC(2019, 10, 30, hour),
         progress: [
-          { date: "11/30/2019", streak: 1 },
-          { date: "12/1/2019", streak: -1 },
+          { date: Date.UTC(2019, 10, 30, hour), streak: 1 },
+          { date: Date.UTC(2019, 11, 1, hour), streak: -1 },
         ],
       },
     ],
     checked: [
       {
         title: "90 min Yoga",
-        startDate: "12/1/2019",
+        startDate: Date.UTC(2019, 11, 1, hour),
         bestStreak: 1,
-        bestStreakDate: "12/1/2019",
+        bestStreakDate: Date.UTC(2019, 11, 1, hour),
         progress: [
           {
-            date: "12/1/2019",
+            date: Date.UTC(2019, 11, 1, hour),
             streak: 1,
           },
         ],
       },
       {
         title: "Push Ups",
-        startDate: "12/1/2019",
+        startDate: Date.UTC(2019, 11, 1, hour),
         bestStreak: 1,
-        bestStreakDate: "12/1/2019",
+        bestStreakDate: Date.UTC(2019, 11, 1, hour),
         progress: [
           {
-            date: "12/1/2019",
+            date: Date.UTC(2019, 11, 1, hour),
             streak: 1,
           },
         ],
       },
       {
         title: "30 min walk",
-        startDate: "12/1/2019",
+        startDate: Date.UTC(2019, 11, 1, hour),
         bestStreak: 1,
-        bestStreakDate: "12/1/2019",
+        bestStreakDate: Date.UTC(2019, 11, 1, hour),
         progress: [
           {
-            date: "12/1/2019",
+            date: Date.UTC(2019, 11, 1, hour),
             streak: 1,
           },
         ],
       },
       {
         title: "Keto Diet",
-        startDate: "12/1/2019",
+        startDate: Date.UTC(2019, 11, 1, hour),
         bestStreak: 3,
-        bestStreakDate: "12/3/2019",
+        bestStreakDate: Date.UTC(2019, 11, 3, hour),
         progress: [
           {
-            date: "12/1/2019",
+            date: Date.UTC(2019, 11, 1, hour),
             streak: 3,
           },
         ],

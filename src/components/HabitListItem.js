@@ -59,6 +59,7 @@ const TagContent = styled.div`
   margin: 0;
   width: 100%;
   text-align: right;
+  white-space: nowrap;
 `
 
 const IconContainer = styled.div`
@@ -93,24 +94,20 @@ const Tag = ({ streak, isNew }) => {
   //4 different tags
   // New Tag, No Tag, Up Streak, Down Streak
   let tagContent
-  if (streak > 1) {
+  if (streak > 1 || streak < 0) {
     tagContent = (
       <TagContent>
         <p className="number" style={{ fontSize: 18 }}>
           {streak}
         </p>
-        <Emoji symbol="🔥" label="fire" style={{ fontSize: 19 }} />
-      </TagContent>
-    )
-  } else if (streak < 0) {
-    tagContent = (
-      <TagContent>
-        <p className="number" style={{ fontSize: 18 }}>
-          {streak}
-        </p>
-        <IconContainer>
-          <FiTrendingDown size={21} />
-        </IconContainer>
+        {streak > 1 && (
+          <Emoji symbol="🔥" label="fire" style={{ fontSize: 19 }} />
+        )}
+        {streak < 0 && (
+          <IconContainer>
+            <FiTrendingDown size={21} />
+          </IconContainer>
+        )}
       </TagContent>
     )
   } else if (isNew) {
