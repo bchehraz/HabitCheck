@@ -3,10 +3,19 @@ import { daysInMonth } from "./"
 const formatCalendarData = (
   calendarData,
   date,
-  page,
+  isFirstPage,
   onCheckListener,
   onUncheckListener
 ) => {
+  console.log("Formatting Calendar Data")
+  console.log(`Input Data >>`)
+  console.log("Calendar Data: ", calendarData)
+  console.log("Date: ", date)
+  console.log("Is it first page? ", isFirstPage)
+  console.log(onCheckListener)
+  console.log(onUncheckListener)
+  console.log(`Starting Function >>`)
+
   const offset = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
   const endOffset = new Date(
     date.getFullYear(),
@@ -43,7 +52,7 @@ const formatCalendarData = (
     if (!days || j >= dayValue || days.length === 0) {
       status = 0
     } else {
-      if (page === 0) {
+      if (isFirstPage) {
         status = days[days.length - 1]
         if (status === 3) {
           onClick = onCheckListener
@@ -62,8 +71,11 @@ const formatCalendarData = (
     data[week].unshift({
       day: j + 1,
       status,
-      onClick,
     })
+
+    if (onClick) {
+      data[week][0].onClick = onClick
+    }
 
     dayCounter++
   }
@@ -72,6 +84,9 @@ const formatCalendarData = (
     data[week].unshift({ day: null })
   }
   data.reverse()
+
+  console.log(`Output Data >>`)
+  console.log(data)
 
   return data
 }

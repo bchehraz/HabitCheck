@@ -5,8 +5,18 @@ const logBlue = (msg, arg = "") => {
 }
 
 const getDateDiffInDays = (a, b) => {
-  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate())
-  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate())
+  const utc1 = Date.UTC(
+    a.getFullYear(),
+    a.getMonth(),
+    a.getDate(),
+    a.getUTCHours()
+  )
+  const utc2 = Date.UTC(
+    b.getFullYear(),
+    b.getMonth(),
+    b.getDate(),
+    b.getUTCHours()
+  )
 
   return Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24))
 }
@@ -16,10 +26,14 @@ const updateHabits = data => {
   let checked = []
 
   const today = new Date()
+  console.log(
+    "[Updating Habit] Last Update Stored (formatted to date): ",
+    new Date(habits.lastUpdate)
+  )
 
   if (habits.lastUpdate !== null) {
     const date = new Date(habits.lastUpdate)
-    if (today.setHours(0, 0, 0, 0) == date.setHours(0, 0, 0, 0)) {
+    if (today.setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0)) {
       return habits
     }
   }
@@ -35,11 +49,7 @@ const updateHabits = data => {
     const { length } = habit.progress
     const current = habit.progress[length - 1]
     const lastDate = new Date(current.date)
-    // const diffTime = Math.abs(today - lastDate)
     const diffDays = getDateDiffInDays(lastDate, today)
-    //const lastDate = Date.UTC(current.date.getFullYear(), current.date.getMonth(), current.date.getDate())
-    // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-    //TODO: fix a bug where diffDays isn't correctly calculated for ALL situations
     const streak = Math.abs(current.streak)
 
     if (diffDays - streak === 0) {
@@ -53,34 +63,20 @@ const updateHabits = data => {
       if (current.streak < 0) {
         current.streak -= newStreak
       } else {
-        //if we're to set a new negative streak,
-        //store the day BEFORE today
-        // const missedDay = new Date(today)
-        // newStreak -= 1 //??? Why is this here
-        //missedDay.setDate(missedDay.getDate() - newStreak)
         const missedDay = new Date(lastDate)
         missedDay.setDate(missedDay.getDate() + streak)
-
         habit.progress = [
           ...habit.progress,
           {
-            date: missedDay.toLocaleDateString(),
+            date: Date.UTC(
+              missedDay.getFullYear(),
+              missedDay.getMonth(),
+              missedDay.getDate(),
+              missedDay.getUTCHours()
+            ),
             streak: -newStreak,
           },
         ]
-
-        if (
-          habit.title === "Quit Smoking" ||
-          habit.title === "Habit Test 453"
-        ) {
-          logBlue("Last Date > " + lastDate)
-          logBlue("diffDays, current.streak, newStreak, missedDay")
-          console.log(diffDays, current.streak, newStreak, missedDay)
-          let total = diffDays - (current.streak + newStreak)
-          console.log("Total", total)
-          console.log(habit)
-          logBlue("Habit Progress > ", habit.progress[1])
-        }
       }
 
       return habit
@@ -94,11 +90,6 @@ const updateHabits = data => {
     const diffTime = Math.abs(today - lastDate)
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
     const daysMissed = diffDays - current.streak
-
-    // logBlue(`<Checked> ${habit.title}, ${current.date}`)
-    // console.log(`Day Difference: ${diffDays}`);
-    // console.log(`Streak: ${current.streak}`);
-    // console.log(`Days Missed: ${daysMissed}`);
 
     if (daysMissed === -1) {
       // Case:
@@ -114,7 +105,12 @@ const updateHabits = data => {
         const missedDay = new Date(today)
         missedDay.setDate(missedDay.getDate() - daysMissed)
         habit.progress.push({
-          date: missedDay.toLocaleDateString(),
+          date: Date.UTC(
+            missedDay.getFullYear(),
+            missedDay.getMonth(),
+            missedDay.getDate(),
+            missedDay.getUTCHours()
+          ),
           streak: -(diffDays - current.streak),
         })
       }
@@ -124,10 +120,12 @@ const updateHabits = data => {
   })
 
   habits.checked = checked
-  habits.lastUpdate = new Date(today).toLocaleDateString()
-  // console.log("SET LAST UPDATE: " + habits.lastUpdate);
-  // console.log(habits);
-  // console.log("</Updating Habits>");
+  habits.lastUpdate = Date.UTC(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+    today.getUTCHours()
+  )
   return habits
 }
 
