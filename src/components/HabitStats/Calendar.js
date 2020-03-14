@@ -5,7 +5,7 @@ import { FaCaretLeft, FaCaretRight } from "react-icons/fa"
 
 import CalendarWeekLabel from "./CalendarWeekLabel"
 import CalendarRow from "./CalendarRow"
-import { formatCalendarData } from "utils/HabitStats/Calendar"
+import { formatCalendarData } from "../../utils/HabitStats/Calendar"
 
 const months = [
   "January",

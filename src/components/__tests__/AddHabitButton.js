@@ -1,11 +1,14 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
-// import renderer from "react-test-renderer"
+import renderer from "react-test-renderer"
 
 import AddHabitButton from "../AddHabitButton"
 
-test("temp", () => {
-  expect(true).toBe(true)
+test("AddHabitButton: Snapshot test", () => {
+  const tree = renderer
+    .create(<AddHabitButton handleAddHabit={() => {}} />)
+    .toJSON()
+  expect(tree).toMatchSnapshot()
 })
 
 test("AddHabitButton: handleAddHabit callback with input", () => {

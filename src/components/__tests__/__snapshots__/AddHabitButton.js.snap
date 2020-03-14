@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddHabitButton: Snapshot test 1`] = `
+<div
+  className="sc-bdVaJa drkGtX addHabitButton"
+  onClick={[Function]}
+>
+  <form
+    className="sc-htpNat bXqxRp"
+  >
+    <input
+      className="sc-bxivhb gGYjOE habitTitleInput"
+      onChange={[Function]}
+      placeholder="Habit Title"
+      type="text"
+      value=""
+    />
+    <button
+      className="sc-ifAKCX dsDEqc"
+      onClick={[Function]}
+    >
+      Start New Habit
+    </button>
+  </form>
+  <div
+    className="sc-bwzfXH hofZqQ"
+    data-testid="AddHabitButtonClose"
+    onClick={[Function]}
+  >
+    <svg
+      className="icon"
+      fill="currentColor"
+      height={25}
+      size={25}
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 448 512"
+      width={25}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+      />
+    </svg>
+  </div>
+</div>
+`;

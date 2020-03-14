@@ -125,7 +125,11 @@ const Tag = ({ streak, isNew }) => {
 
 const HabitListItem = ({ title, streak, isNew, isChecked, onClick }) => {
   return (
-    <ItemContainer checked={isChecked} loseStreak={streak < 0}>
+    <ItemContainer
+      data-testid="HabitListItem"
+      checked={isChecked}
+      loseStreak={streak < 0}
+    >
       <Clickable onClick={onClick} className="habitListItemAction" />
 
       <h4 style={{ margin: 0 }}>{title}</h4>
