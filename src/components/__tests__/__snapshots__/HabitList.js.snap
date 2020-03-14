@@ -55,6 +55,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={false}
     className="sc-bdVaJa flVaPf"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -115,6 +116,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={false}
     className="sc-bdVaJa flVaPf"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -193,6 +195,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={false}
     className="sc-bdVaJa flVaPf"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -271,6 +274,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={false}
     className="sc-bdVaJa bWpfaw"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -364,6 +368,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={false}
     className="sc-bdVaJa bWpfaw"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -457,6 +462,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={true}
     className="sc-bdVaJa fJLxhr"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -502,6 +508,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={true}
     className="sc-bdVaJa fJLxhr"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -547,6 +554,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={true}
     className="sc-bdVaJa fJLxhr"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"
@@ -592,6 +600,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
   <div
     checked={true}
     className="sc-bdVaJa fJLxhr"
+    data-testid="HabitListItem"
   >
     <div
       className="sc-ifAKCX eySOSY habitListItemAction"

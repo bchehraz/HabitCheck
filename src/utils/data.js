@@ -1,28 +1,4 @@
-let dates = [
-  new Date("12/02/2019"),
-  new Date("12/02/2019"),
-  new Date("10/25/2019"),
-  new Date("11/28/2019"),
-  new Date("11/29/2019"),
-  new Date("12/01/2019"),
-  new Date("12/01/2019"),
-  new Date("12/01/2019"),
-  new Date("12/01/2019"),
-]
-
-let utcStartDate = []
-for (let i = 0; i < dates.length; i++) {
-  utcStartDate.push(
-    Date.UTC(
-      dates[i].getFullYear(),
-      dates[i].getMonth(),
-      dates[i].getDate(),
-      dates[i].getUTCHours()
-    )
-  )
-}
 let hour = new Date("2/2/2020").getUTCHours()
-// Date.UTC(2020, 11, 2, hour)
 
 export const data = {
   habits: {
