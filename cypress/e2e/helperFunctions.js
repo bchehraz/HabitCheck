@@ -133,10 +133,8 @@ export const calendarItemLengthIs = length => {
 }
 
 export const calendarHasDayValues = max => {
-  //cy.wait(300);
   for (let i = 0; i < max; i++) {
     cy.get(".calendarRow").contains(i + 1)
-    //cy.wait(50);
   }
   cy.wait(100)
 }
@@ -160,9 +158,6 @@ export const calendarItemsReflectStreak = (
   isChecked = false,
   currentDate = Date
 ) => {
-  // cy.visit('/app/stats')
-  // cy.get("select[name=habits]").select(habit.title)
-
   const date = new Date(currentDate)
   let currentMonth = date.getMonth()
   let streakArray = [...habit.progress]
@@ -215,13 +210,6 @@ export const xEffectItemsReflectStreak = (
   habit = Object,
   isChecked = Boolean
 ) => {
-  cy.log("habit data", habit)
-  cy.log("progress", [...habit.progress])
-  cy.log("progress", JSON.stringify(habit.progress))
-  cy.log("isChecked", isChecked)
-  // cy.visit('/app/stats')
-  // cy.get("select[name=habits]").select(habit.title)
-
   // Number of elements in XEffect
   let total = (!isChecked && 1) || 0
   let pageData = []
@@ -268,10 +256,3 @@ export const xEffectItemsReflectStreak = (
     xEffectNextPage()
   }
 }
-
-// const nextXEffectPage = (date, currentMonth) => {
-//   if (currentMonth !== date.getMonth()) {
-//     cy.get(".btnPageLeft")
-//       .click({ force: true })
-//   }
-// }
