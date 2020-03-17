@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
-1. [Habit Data Structure](#habitdatastructure)
+1. [Habit Data Structure](#habit-data-structure)
 
 ## Habit Data Structure
 
