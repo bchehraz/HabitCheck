@@ -133,10 +133,8 @@ export const calendarItemLengthIs = length => {
 }
 
 export const calendarHasDayValues = max => {
-  //cy.wait(300);
   for (let i = 0; i < max; i++) {
     cy.get(".calendarRow").contains(i + 1)
-    //cy.wait(50);
   }
   cy.wait(100)
 }
@@ -160,9 +158,6 @@ export const calendarItemsReflectStreak = (
   isChecked = false,
   currentDate = Date
 ) => {
-  // cy.visit('/app/stats')
-  // cy.get("select[name=habits]").select(habit.title)
-
   const date = new Date(currentDate)
   let currentMonth = date.getMonth()
   let streakArray = [...habit.progress]
@@ -171,9 +166,10 @@ export const calendarItemsReflectStreak = (
     //if current day is not checked off, skip today
     date.setDate(date.getDate() - 1)
 
-    //if the new date happens to be a new month, go to next page
-    nextPageIfMonthChanged(date, currentMonth)
-
+    if (habit.progress.length !== 0) {
+      //if the new date happens to be a new month, go to next page
+      nextPageIfMonthChanged(date, currentMonth)
+    }
     //update currentMonth
     currentMonth = date.getMonth()
   }
@@ -214,18 +210,16 @@ export const xEffectItemsReflectStreak = (
   habit = Object,
   isChecked = Boolean
 ) => {
-  // cy.visit('/app/stats')
-  // cy.get("select[name=habits]").select(habit.title)
-
   // Number of elements in XEffect
   let total = (!isChecked && 1) || 0
   let pageData = []
   let streakArray = [...habit.progress]
   streakArray.forEach(streak => {
-    for (let i = 0; i < Math.abs(streak); i++) {
+    let streakValue = Math.abs(streak)
+    for (let i = 0; i < streakValue; i++) {
       pageData.push((streak > 0 && 2) || 1)
     }
-    total += streak
+    total += streakValue
   })
 
   let placeholderData = new Array(25 - (pageData.length % 25)).fill(0)
@@ -262,10 +256,3 @@ export const xEffectItemsReflectStreak = (
     xEffectNextPage()
   }
 }
-
-// const nextXEffectPage = (date, currentMonth) => {
-//   if (currentMonth !== date.getMonth()) {
-//     cy.get(".btnPageLeft")
-//       .click({ force: true })
-//   }
-// }

@@ -226,7 +226,12 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
   before(() => {
     today = currentDate.getDate()
     cy.clock(
-      Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), today + 1),
+      Date.UTC(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        today,
+        currentDate.getUTCHours()
+      ),
       ["Date"]
     )
 
@@ -366,7 +371,12 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
     beforeEach(() => {
       today = currentDate.getDate()
       cy.clock(
-        Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), today + 1),
+        Date.UTC(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          today,
+          currentDate.getUTCHours()
+        ),
         ["Date"]
       )
       cy.restoreLocalStorage()
@@ -375,26 +385,36 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
     for (let i = 0; i < 30; i++) {
       it(`Test ${i + 1}, Day ${i + 2}`, () => {
         cy.visit("/app")
+
+        // Test A: Run tests with random input
         cy.log("#testA", {
           ...habits.test1,
           progress: [...habits.test1.progress],
         })
+
+        // Test B: Run tests with random input
         runTests(habits.test1, getRandomDayStatus())
         cy.log("#testB", {
           ...habits.test2,
           progress: [...habits.test2.progress],
         })
+
+        // Test C: Run tests for habit that NEVER gets checked off
         runTests(habits.test2, getRandomDayStatus())
         cy.log("#testC", {
           ...habits.test3,
           progress: [...habits.test3.progress],
         })
         runTests(habits.test3, false, true)
+
+        // Test D: Run tests while *checking off every day*
         cy.log("#testD", {
           ...habits.test4,
           progress: [...habits.test4.progress],
         })
         runTests(habits.test4, true)
+
+        // Test A: Run tests after *only checking off the first day*
         cy.log("#testE : ", {
           ...habits.test5,
           progress: [...habits.test5.progress],
