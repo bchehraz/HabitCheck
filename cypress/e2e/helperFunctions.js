@@ -171,9 +171,10 @@ export const calendarItemsReflectStreak = (
     //if current day is not checked off, skip today
     date.setDate(date.getDate() - 1)
 
-    //if the new date happens to be a new month, go to next page
-    nextPageIfMonthChanged(date, currentMonth)
-
+    if (habit.progress.length !== 0) {
+      //if the new date happens to be a new month, go to next page
+      nextPageIfMonthChanged(date, currentMonth)
+    }
     //update currentMonth
     currentMonth = date.getMonth()
   }
@@ -214,6 +215,10 @@ export const xEffectItemsReflectStreak = (
   habit = Object,
   isChecked = Boolean
 ) => {
+  cy.log("habit data", habit)
+  cy.log("progress", [...habit.progress])
+  cy.log("progress", JSON.stringify(habit.progress))
+  cy.log("isChecked", isChecked)
   // cy.visit('/app/stats')
   // cy.get("select[name=habits]").select(habit.title)
 
@@ -222,10 +227,11 @@ export const xEffectItemsReflectStreak = (
   let pageData = []
   let streakArray = [...habit.progress]
   streakArray.forEach(streak => {
-    for (let i = 0; i < Math.abs(streak); i++) {
+    let streakValue = Math.abs(streak)
+    for (let i = 0; i < streakValue; i++) {
       pageData.push((streak > 0 && 2) || 1)
     }
-    total += streak
+    total += streakValue
   })
 
   let placeholderData = new Array(25 - (pageData.length % 25)).fill(0)

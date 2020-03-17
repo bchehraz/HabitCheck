@@ -226,7 +226,12 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
   before(() => {
     today = currentDate.getDate()
     cy.clock(
-      Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), today + 1),
+      Date.UTC(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        today,
+        currentDate.getUTCHours()
+      ),
       ["Date"]
     )
 
@@ -366,7 +371,12 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
     beforeEach(() => {
       today = currentDate.getDate()
       cy.clock(
-        Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), today + 1),
+        Date.UTC(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          today,
+          currentDate.getUTCHours()
+        ),
         ["Date"]
       )
       cy.restoreLocalStorage()
