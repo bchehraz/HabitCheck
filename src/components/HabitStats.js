@@ -9,17 +9,24 @@ import CalendarView from "./HabitStats/CalendarView"
 import XEffectView from "./HabitStats/XEffectView"
 import StatHighlight from "./HabitStats/StatHighlight"
 import Spinner from "./Spinner"
+import EditButton from "./EditButton"
 
 import AuthContext from "../context/auth-context"
 
 import { getCalendarData } from "utils/HabitStats/Calendar"
 import { getXEffectData } from "utils/HabitStats/XEffectData"
 
+const Container = styled.div`
+  max-width: 400px;
+  width: 100%;
+`
+
 const StatusContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  width: 100%;
 `
 
 const HabitStats = ({ path }) => {
@@ -35,6 +42,8 @@ const HabitStats = ({ path }) => {
   const [habitData, setHabitData] = useState([])
   const [calendarData, setCalendarData] = useState([])
   const [xEffectData, setXEffectData] = useState([])
+  const [editMode, setEditMode] = useState(false)
+  const [newTitle, setNewTitle] = useState("")
 
   useEffect(() => {
     let data = []
@@ -46,8 +55,6 @@ const HabitStats = ({ path }) => {
     }
     data = data.sort((a, b) => a.title.localeCompare(b.title))
     setHabitData([...data])
-    // console.log(`Habit Stats : useEffect => `)
-    // console.log(data)
 
     // CalendarView or XEffectView ?
     setView(viewPreference)
@@ -71,7 +78,6 @@ const HabitStats = ({ path }) => {
         setXEffectData(getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE))
       }
     }
-    // console.log(`=> End of useEffect`)
   }, [checked, unchecked, viewPreference, userSelected])
 
   if (habitData.length === 0) {
@@ -105,6 +111,24 @@ const HabitStats = ({ path }) => {
     context.toggleXEffectView()
   }
 
+  const toggleEditMode = () => {
+    if (editMode === true) {
+      setNewTitle("")
+    } else {
+      setNewTitle(habitData[selected].title)
+    }
+    setEditMode(!editMode)
+  }
+
+  const onTitleChange = e => {
+    setNewTitle(e.target.value)
+  }
+
+  const onChangeTitle = () => {
+    context.changeHabitTitle(habitData[selected].title, newTitle)
+    setEditMode(false)
+  }
+
   const { progress, bestStreak } = habitData[selected]
   const { length } = progress
   let streak = 0
@@ -114,60 +138,86 @@ const HabitStats = ({ path }) => {
 
   return (
     <AppLayout path={path}>
-      <StatusContainer>
-        <h3>
-          <DropDown
-            selected={selected}
-            onSelect={e => {
-              setSelected(e.target.value)
-              context.setSelectedHabit(e.target.value)
+      <Container>
+        <StatusContainer>
+          <h3>
+            {!editMode && (
+              <DropDown
+                selected={selected}
+                onSelect={e => {
+                  setSelected(e.target.value)
+                  context.setSelectedHabit(e.target.value)
 
-              const { index, isChecked } = habitMap[
-                habitData[e.target.value].title
-              ]
-              const { progress } =
-                (isChecked && checked[index]) || unchecked[index]
+                  const { index, isChecked } = habitMap[
+                    habitData[e.target.value].title
+                  ]
+                  const { progress } =
+                    (isChecked && checked[index]) || unchecked[index]
 
-              // Get Data based on the view the user is on
-              if (view) {
-                setXEffectData(
-                  getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE)
-                )
-              } else {
-                setCalendarData(getCalendarData(progress, isChecked))
-              }
-            }}
-            list={habitData}
+                  // Get Data based on the view the user is on
+                  if (view) {
+                    setXEffectData(
+                      getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE)
+                    )
+                  } else {
+                    setCalendarData(getCalendarData(progress, isChecked))
+                  }
+                }}
+                list={habitData}
+              />
+            )}
+            {editMode && (
+              <input
+                type="text"
+                value={newTitle}
+                onChange={onTitleChange}
+                style={{
+                  border: "1px solid black",
+                  padding: "3px 8px",
+                  minWidth: "300px",
+                }}
+              />
+            )}
+          </h3>
+          <SwitchViewButton enabled={view} onClick={toggleView} />
+        </StatusContainer>
+        <EditButton
+          onClick={toggleEditMode}
+          enabled={editMode}
+          onConfirm={onChangeTitle}
+          handleRemove={() => {
+            // eslint-disable-next-line no-undef
+            const res = confirm("Are you sure you want to remove this habit?")
+            console.log("Confirm Response", res)
+          }}
+        />
+        {view ? (
+          <XEffectView
+            data={xEffectData}
+            size={{ col: MAX_XEFFECT_SIZE / 5, row: MAX_XEFFECT_SIZE / 5 }}
+            onCheck={onCheckHandler}
+            onUncheck={onUncheckHandler}
           />
-        </h3>
-        <SwitchViewButton enabled={view} onClick={toggleView} />
-      </StatusContainer>
-      {view ? (
-        <XEffectView
-          data={xEffectData}
-          size={{ col: MAX_XEFFECT_SIZE / 5, row: MAX_XEFFECT_SIZE / 5 }}
-          onCheck={onCheckHandler}
-          onUncheck={onUncheckHandler}
+        ) : (
+          <CalendarView
+            data={calendarData}
+            onCheck={onCheckHandler}
+            onUncheck={onUncheckHandler}
+          />
+        )}
+        <StatHighlight
+          title="Current Streak"
+          statValue={(streak > 0 && streak) || 0}
+          primaryColor="rgba(138, 203, 136, 0.25)"
+          secondaryColor="#8ACB88"
         />
-      ) : (
-        <CalendarView
-          data={calendarData}
-          onCheck={onCheckHandler}
-          onUncheck={onUncheckHandler}
+        <StatHighlight
+          title="Best Streak"
+          statValue={bestStreak}
+          primaryColor="rgba(102, 199, 244, 0.25)"
+          secondaryColor="#66C7F4"
         />
-      )}
-      <StatHighlight
-        title="Current Streak"
-        statValue={(streak > 0 && streak) || 0}
-        primaryColor="rgba(138, 203, 136, 0.25)"
-        secondaryColor="#8ACB88"
-      />
-      <StatHighlight
-        title="Best Streak"
-        statValue={bestStreak}
-        primaryColor="rgba(102, 199, 244, 0.25)"
-        secondaryColor="#66C7F4"
-      />
+      </Container>
     </AppLayout>
   )
 }

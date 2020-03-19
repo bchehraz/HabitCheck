@@ -1,6 +1,5 @@
 import { isBrowser } from "./helpers"
 import { getUserData, setUserData } from "./auth"
-import { updateHabits } from "./updateHabits"
 
 export const handleCheckHabit = habitIndex => {
   if (!isBrowser) return
@@ -91,19 +90,9 @@ export const handleCheckHabit = habitIndex => {
   data.habits.checked = [habit, ...data.habits.checked]
 
   //update habit map
-  let newMap = { ...data.habits.map }
-  data.habits.checked.forEach((habit, index) => {
-    newMap[habit.title] = { index, isChecked: true }
-  })
-
-  data.habits.unchecked.forEach((habit, index) => {
-    newMap[habit.title] = { index, isChecked: false }
-  })
-  data.habits.map = { ...newMap }
+  data.habits.map = { ...getNewHabitMap(data.habits) }
 
   setUserData(data)
-  // console.log("Checked Off > ")
-  // console.log(data.habits)
   return data.habits
 }
 
@@ -149,9 +138,6 @@ export const handleUncheckHabit = habitIndex => {
     progress.pop()
   }
 
-  // console.log("<Uncheck> Uncheck Function")
-  // console.log("Current Streak" + current.streak)
-  // console.log("Best Streak" + habit.bestStreak)
   if (current.streak === habit.bestStreak) {
     //check to see if the current streak IS the best streak value
     if (habit.bestStreakDate) {
@@ -164,17 +150,15 @@ export const handleUncheckHabit = habitIndex => {
         // Since we are unchecking a current best streak,
         // set the bestStreakDate to yesterday...?
 
-        // TODO: This has to be done in a cleaner way somehow if it's to be used as a useful data point to display to the user. It *could* be used to show the date the user reached this best streak. Really useful? Not really...
         const yesterday = new Date()
         yesterday.setDate(today.getDate() - 1)
-        // habit.bestStreakDate = yesterday
+
         habit.bestStreakDate = Date.UTC(
           yesterday.getFullYear(),
           yesterday.getMonth(),
           yesterday.getDate(),
           yesterday.getUTCHours()
         )
-        // console.log(habit.bestStreakDate)
       }
     }
   }
@@ -192,8 +176,6 @@ export const handleUncheckHabit = habitIndex => {
   data.habits.map = { ...getNewHabitMap(data.habits) }
 
   setUserData(data)
-  // console.log("Unchecked >")
-  // console.log(data.habits)
   return data.habits
 }
 

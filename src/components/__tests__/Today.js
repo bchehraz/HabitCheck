@@ -5,7 +5,7 @@ import { advanceTo, clear } from "jest-date-mock"
 
 import Today from "../Today.js"
 import { AuthProvider } from "../../context/auth-context"
-import { data } from "../../utils/data"
+import { data } from "../../utils/static/data"
 
 test("Today: Snapshot test", () => {
   advanceTo(new Date("12/25/2019"))

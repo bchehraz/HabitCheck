@@ -4,6 +4,9 @@ import styled from "styled-components"
 
 const Select = styled.select`
   background-color: white;
+  min-width: 300px;
+  max-width: 300px;
+  flex: 1;
 `
 
 const DropDown = ({ list, selected, onSelect }) => {

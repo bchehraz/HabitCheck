@@ -141,7 +141,6 @@ const AddHabitButton = ({ handleAddHabit }) => {
       formOpen={formOpen}
       onClick={() => {
         if (!formOpen) {
-          console.log("<Action> Add Habit Button was clicked!")
           setFormOpen(true)
         }
       }}

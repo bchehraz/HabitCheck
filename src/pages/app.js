@@ -17,6 +17,7 @@ import {
   handleToggleDarkMode,
   handleToggleXEffectView,
 } from "utils/preferences"
+import newHabitTitle from "utils/HabitData/newHabitTitle"
 
 const initState = {
   token: null,
@@ -128,6 +129,19 @@ const AppHome = () => {
           setLoginData({
             ...loginData,
             preferences: { ...loginData.preferences, selected: selected },
+          })
+        },
+        changeHabitTitle: (title, newTitle) => {
+          const update = newHabitTitle(title, newTitle)
+          console.log("Update after context", update.lastUpdate)
+          setLoginData({
+            ...loginData,
+            data: {
+              ...loginData.data,
+              habits: {
+                ...update,
+              },
+            },
           })
         },
       }}

@@ -1,6 +1,4 @@
-import { advanceTo, clear } from "jest-date-mock"
 import { formatCalendarData } from "../"
-import { FaItalic } from "react-icons/fa"
 
 // formatCalendarData Function Test
 

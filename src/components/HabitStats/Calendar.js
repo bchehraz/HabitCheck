@@ -48,6 +48,8 @@ const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   user-select: none;
+  max-width: 340px;
+  margin: 0 auto;
 `
 
 const DaysContainer = styled.div`

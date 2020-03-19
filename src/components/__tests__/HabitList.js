@@ -2,7 +2,7 @@ import React from "react"
 import renderer from "react-test-renderer"
 
 import HabitList from "../HabitList"
-import { data_1, data } from "../../utils/data"
+import { data_1, data } from "../../utils/static/data"
 
 describe("HabitList Component Snapshot", () => {
   it("renders with empty data", () => {
