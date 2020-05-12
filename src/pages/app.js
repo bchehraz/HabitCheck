@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Router, Redirect } from "@reach/router"
 
-// import LayoutController from '../components/LayoutController';
 import Login from "components/Login"
 import PrivateRoute from "components/PrivateRoute"
 import Status from "components/Status"
 
-// import App from '../components/App';
 import Today from "components/Today"
 import HabitStats from "components/HabitStats"
 import Journal from "components/Journal"
