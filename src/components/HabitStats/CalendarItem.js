@@ -16,6 +16,7 @@ const Container = styled.div`
     p.number {
       font-weight: 300 !important;
     }
+    margin: 2px 5px;
   }
 
   .status__1,
