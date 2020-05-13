@@ -38,6 +38,7 @@ const ActionButton = styled.button`
   padding: 5px;
   opacity: 0;
   ${({ enabled }) => enabled && "opacity: 1;"}
+  ${({ enabled }) => !enabled && "z-index: -100;"}
   cursor: pointer;
   width: 100%;
   border-radius: 15px;
