@@ -1,5 +1,4 @@
 import {
-  navigate,
   listItemIsNotNew,
   listItemIsNew,
   hasBestStreak,
@@ -16,8 +15,9 @@ import {
   calendarItemsReflectStreak,
   toggleStatView,
   xEffectItemsReflectStreak,
-  xEffectItemLengthIs,
   xEffectItemDoAction,
+  gotoStats,
+  goBackFromStats,
 } from "./helperFunctions"
 
 describe.only("Comprehensive e2e App Functionality Test", () => {
@@ -143,8 +143,7 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
       isChecked = true
     }
     // *** Habit Stats Tests *** //
-    navigate("habitStats")
-    cy.get("select[name=habits]").select(habit.title)
+    gotoStats(habit.title)
 
     if (xEffectToggled) {
       toggleStatView()
@@ -289,11 +288,8 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
     listItemIsNew(testHabit4)
     listItemIsNew(testHabit5)
 
-    // Navigate to HabitStats page via footer nav
-    navigate("habitStats")
-
-    //Select the new habit from the dropdown menu
-    cy.get("select[name=habits]").select(testHabit1)
+    // Go to Habit's Stats
+    gotoStats(testHabit1)
 
     // Check the number of calendarRows
     calendarRowLengthIs(6)
@@ -353,7 +349,7 @@ describe.only("Comprehensive e2e App Functionality Test", () => {
   })
 
   it("Test 0, Day 1 (Setup)", () => {
-    navigate("today")
+    goBackFromStats()
     listItemDoAction(testHabit1)
     habitAction(habits.test1, false)
     listItemDoAction(testHabit2)

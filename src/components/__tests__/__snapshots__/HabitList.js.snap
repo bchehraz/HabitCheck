@@ -2,31 +2,31 @@
 
 exports[`HabitList Component Snapshot renders with data 1`] = `
 <div
-  className="sc-gqjmRU gggsyL habitList"
+  className="sc-VigVT kxLHnZ habitList"
 >
   <div
-    className="sc-gzVnrw kmJYvF addHabitButton"
+    className="sc-htoDjs gBxxpC addHabitButton"
     onClick={[Function]}
   >
     <form
-      className="sc-dnqmqq jgPXaW"
+      className="sc-iwsKbI ovFjO"
     >
       <input
-        className="sc-iwsKbI jOlfmC habitTitleInput"
+        className="sc-gZMcBi xlAlE habitTitleInput"
         onChange={[Function]}
         placeholder="Habit Title"
         type="text"
         value=""
       />
       <button
-        className="sc-gZMcBi hiiSes"
+        className="sc-gqjmRU lcazIA"
         onClick={[Function]}
       >
         Start New Habit
       </button>
     </form>
     <div
-      className="sc-htoDjs kUfOZM"
+      className="sc-dnqmqq cTqLgJ"
       data-testid="AddHabitButtonClose"
       onClick={[Function]}
     >
@@ -58,7 +58,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -71,7 +75,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       Work on HabitCheck
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
         className="sc-bwzfXH jbgUER"
@@ -87,7 +91,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
         </p>
       </div>
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -119,7 +123,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -132,7 +140,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       TEST_DATA_1
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
         className="sc-bwzfXH kvljid"
@@ -166,7 +174,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
         </div>
       </div>
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -198,7 +206,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -211,7 +223,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       Quit Smoking
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
         className="sc-bwzfXH kvljid"
@@ -245,7 +257,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
         </div>
       </div>
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -277,7 +289,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -290,7 +306,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       Meditate
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
         className="sc-bwzfXH jJYxWb"
@@ -339,7 +355,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
         </div>
       </div>
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -371,7 +387,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -384,7 +404,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       Sleep on time
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
         className="sc-bwzfXH jJYxWb"
@@ -433,7 +453,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
         </div>
       </div>
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -465,7 +485,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -478,10 +502,10 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       90 min Yoga
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -511,7 +535,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -524,10 +552,10 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       Push Ups
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -557,7 +585,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -570,10 +602,10 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       30 min walk
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -603,7 +635,11 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
     data-testid="HabitListItem"
   >
     <div
-      className="sc-ifAKCX eySOSY habitListItemAction"
+      className="sc-ifAKCX eHParF toHabitStats"
+      onClick={[Function]}
+    />
+    <div
+      className="sc-EHOje dvmiAq habitListItemAction"
       onClick={[Function]}
     />
     <h4
@@ -616,7 +652,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
       Keto Diet
     </h4>
     <div
-      className="sc-EHOje BsGex habitListItemStatus"
+      className="sc-bZQynM dZDLPq habitListItemStatus"
     >
       <div
         className="sc-bwzfXH kvljid"
@@ -650,7 +686,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
         </div>
       </div>
       <div
-        className="sc-bZQynM gWESGZ habitListItemCheckbox"
+        className="sc-gzVnrw dxkqnm habitListItemCheckbox"
       >
         <svg
           fill="currentColor"
@@ -679,31 +715,31 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
 
 exports[`HabitList Component Snapshot renders with empty data 1`] = `
 <div
-  className="sc-gqjmRU gggsyL habitList"
+  className="sc-VigVT kxLHnZ habitList"
 >
   <div
-    className="sc-gzVnrw kmJYvF addHabitButton"
+    className="sc-htoDjs gBxxpC addHabitButton"
     onClick={[Function]}
   >
     <form
-      className="sc-dnqmqq jgPXaW"
+      className="sc-iwsKbI ovFjO"
     >
       <input
-        className="sc-iwsKbI jOlfmC habitTitleInput"
+        className="sc-gZMcBi xlAlE habitTitleInput"
         onChange={[Function]}
         placeholder="Habit Title"
         type="text"
         value=""
       />
       <button
-        className="sc-gZMcBi hiiSes"
+        className="sc-gqjmRU lcazIA"
         onClick={[Function]}
       >
         Start New Habit
       </button>
     </form>
     <div
-      className="sc-htoDjs kUfOZM"
+      className="sc-dnqmqq cTqLgJ"
       data-testid="AddHabitButtonClose"
       onClick={[Function]}
     >
