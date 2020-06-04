@@ -1,5 +1,5 @@
 import { isBrowser } from "./helpers"
-import { data } from "./static/data"
+import { data as _DATA } from "./static/data"
 import { updateHabits } from "./updateHabits"
 
 /****
@@ -96,6 +96,15 @@ export const setUserData = data => {
   setUser({ ...getCurrentUser(), data })
 }
 
+export const getHabits = () => {
+  return getCurrentUser().data.habits
+}
+
+export const setHabits = habits => {
+  const user = getCurrentUser()
+  setUser({ ...user, data: { ...user.data, habits: { ...habits } } })
+}
+
 export const logout = callback => {
   if (!isBrowser) return
 
@@ -121,7 +130,7 @@ export const logout = callback => {
 export const login = () => {
   if (!isBrowser) return false
 
-  const habits = updateHabits(data)
+  const habits = updateHabits(_DATA)
   let map = {}
   habits.checked.forEach((habit, index) => {
     map[habit.title] = { index, isChecked: true }
@@ -137,7 +146,7 @@ export const login = () => {
     tokenExpiration: "1h",
     email: "email@test.com",
     data: {
-      ...data,
+      ..._DATA,
       habits,
     },
     preferences: {
