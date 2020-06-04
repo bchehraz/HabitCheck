@@ -1,4 +1,5 @@
 import React from "react"
+import { navigate } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -69,11 +70,20 @@ const IconContainer = styled.div`
   align-items: center;
 `
 
-const Clickable = styled.div`
+const LeftClickable = styled.div`
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0%;
+  cursor: pointer;
+`
+
+const RightClickable = styled.div`
   position: absolute;
   width: 25%;
   height: 100%;
   left: 75%;
+  cursor: pointer;
 `
 
 const Status = styled.div`
@@ -123,14 +133,22 @@ const Tag = ({ streak, isNew }) => {
   )
 }
 
-const HabitListItem = ({ title, streak, isNew, isChecked, onClick }) => {
+const HabitListItem = ({
+  title,
+  streak,
+  isNew,
+  isChecked,
+  onClick,
+  viewStats,
+}) => {
   return (
     <ItemContainer
       data-testid="HabitListItem"
       checked={isChecked}
       loseStreak={streak < 0}
     >
-      <Clickable onClick={onClick} className="habitListItemAction" />
+      <LeftClickable onClick={viewStats} className="toHabitStats" />
+      <RightClickable onClick={onClick} className="habitListItemAction" />
 
       <h4 style={{ margin: 0 }}>{title}</h4>
 
@@ -159,6 +177,7 @@ HabitListItem.propTypes = {
   isNew: PropTypes.bool,
   isChecked: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+  viewStats: PropTypes.func.isRequired,
 }
 
 export default HabitListItem

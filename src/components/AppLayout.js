@@ -10,8 +10,8 @@ const AppLayout = ({ children, path }) => {
   let page = path.replace("/app/", "")
   if (page === "/app" || page === "") {
     page = "Today"
-  } else if (page === "stats") {
-    page = "Habit Stats"
+  } else if (page === "settings") {
+    page = "Settings"
   } else {
     page = "Your Journal"
   }

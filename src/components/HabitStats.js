@@ -2,23 +2,20 @@ import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
-import AppLayout from "./AppLayout"
 import SwitchViewButton from "./HabitStats/SwitchViewButton"
-import DropDown from "components/DropDown"
 import CalendarView from "./HabitStats/CalendarView"
 import XEffectView from "./HabitStats/XEffectView"
 import StatHighlight from "./HabitStats/StatHighlight"
-import Spinner from "./Spinner"
-import EditButton from "./EditButton"
 
 import AuthContext from "../context/auth-context"
 
-import { getCalendarData } from "utils/HabitStats/Calendar"
-import { getXEffectData } from "utils/HabitStats/XEffectData"
+import { getCalendarData } from "../utils/HabitStats/Calendar/"
+import { getXEffectData } from "../utils/HabitStats/XEffectData"
 
 const Container = styled.div`
   max-width: 400px;
   width: 100%;
+  margin: 0 auto;
 `
 
 const StatusContainer = styled.div`
@@ -27,80 +24,64 @@ const StatusContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  z-index: 300;
 `
 
-const HabitStats = ({ path }) => {
+const HabitStats = ({ title }) => {
   const MAX_XEFFECT_SIZE = 25
   const context = useContext(AuthContext)
-  const { checked, unchecked } = context.data.habits
   const habitMap = context.data.habits.map
-  const viewPreference = context.preferences.xEffectView
-  const userSelected = context.preferences.selected
 
-  const [view, setView] = useState(false)
-  const [selected, setSelected] = useState(0)
-  const [habitData, setHabitData] = useState([])
+  const { checked, unchecked } = context.data.habits
+  const viewPref = context.preferences.xEffectView
+  const [view, setView] = useState(context.preferences.xEffectView || false)
   const [calendarData, setCalendarData] = useState([])
   const [xEffectData, setXEffectData] = useState([])
-  const [editMode, setEditMode] = useState(false)
-  const [newTitle, setNewTitle] = useState("")
+  const [streak, setStreak] = useState(0)
+  const [bestStreak, setBestStreak] = useState(0)
+  // const [editMode, setEditMode] = useState(false)
+  // const [newTitle, setNewTitle] = useState("")
 
   useEffect(() => {
-    let data = []
-    if (checked) {
-      data = [...data, ...checked]
-    }
-    if (unchecked) {
-      data = [...data, ...unchecked]
-    }
-    data = data.sort((a, b) => a.title.localeCompare(b.title))
-    setHabitData([...data])
+    // Get View Preference from Context, Store Into State
+    // CalendarView or XEffectView?
+    setView(viewPref)
 
-    // CalendarView or XEffectView ?
-    setView(viewPreference)
+    /* Get Index and isChecked from habitMap from context using title */
+    // Note:
+    // HabitMap is an object-> "Habit Title": { isChecked: false, index: 3 }
+    // where index is where its data is located in its respective checked or unchecked array
+    // HabitMap is updated with context actions like checking and unchecking
+    const { index, isChecked } = habitMap[title]
+    const { progress, bestStreak } =
+      (isChecked && checked[index]) || unchecked[index]
 
-    let selectedIndex = selected
-    if (userSelected) {
-      setSelected(userSelected)
-      selectedIndex = userSelected
+    setBestStreak(bestStreak)
+    if (progress.length > 0) {
+      setStreak(progress[progress.length - 1].streak)
+    } else if (progress.length === 0) {
+      setStreak(0)
     }
 
-    if (!viewPreference) {
-      if (Object.keys(habitMap).length > 0 && data.length !== 0) {
-        const { index, isChecked } = habitMap[data[selectedIndex].title]
-        const { progress } = (isChecked && checked[index]) || unchecked[index]
-        setCalendarData(getCalendarData(progress, isChecked))
-      }
+    if (!viewPref) {
+      setCalendarData(getCalendarData(progress, isChecked))
     } else {
-      if (Object.keys(habitMap).length > 0 && data.length !== 0) {
-        const { index, isChecked } = habitMap[data[selectedIndex].title]
-        const { progress } = (isChecked && checked[index]) || unchecked[index]
-        setXEffectData(getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE))
-      }
+      setXEffectData(getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE))
     }
-  }, [checked, unchecked, viewPreference, userSelected])
-
-  if (habitData.length === 0) {
-    return (
-      <AppLayout path={path}>
-        <Spinner />
-        <h3>{`Add a habit to begin tracking data`}</h3>
-      </AppLayout>
-    )
-  }
+  }, [viewPref, habitMap, bestStreak, streak])
 
   const onCheckHandler = () => {
-    const { index } = habitMap[habitData[selected].title]
+    const { index } = habitMap[title]
     context.checkHabit(index)
   }
 
   const onUncheckHandler = () => {
-    const { index } = habitMap[habitData[selected].title]
+    const { index } = habitMap[title]
     context.uncheckHabit(index)
   }
 
   const toggleView = () => {
-    const { index, isChecked } = habitMap[habitData[selected].title]
+    const { index, isChecked } = habitMap[title]
     const { progress } = (isChecked && checked[index]) || unchecked[index]
     if (!view) {
       setXEffectData(getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE))
@@ -111,62 +92,12 @@ const HabitStats = ({ path }) => {
     context.toggleXEffectView()
   }
 
-  const toggleEditMode = () => {
-    if (editMode === true) {
-      setNewTitle("")
-    } else {
-      setNewTitle(habitData[selected].title)
-    }
-    setEditMode(!editMode)
-  }
-
-  const onTitleChange = e => {
-    setNewTitle(e.target.value)
-  }
-
-  const onChangeTitle = () => {
-    context.changeHabitTitle(habitData[selected].title, newTitle)
-    setEditMode(false)
-  }
-
-  const { progress, bestStreak } = habitData[selected]
-  const { length } = progress
-  let streak = 0
-  if (length > 0) {
-    streak = progress[length - 1].streak
-  }
-
   return (
-    <AppLayout path={path}>
-      <Container>
-        <StatusContainer>
-          <h3>
-            {!editMode && (
-              <DropDown
-                selected={selected}
-                onSelect={e => {
-                  setSelected(e.target.value)
-                  context.setSelectedHabit(e.target.value)
-
-                  const { index, isChecked } = habitMap[
-                    habitData[e.target.value].title
-                  ]
-                  const { progress } =
-                    (isChecked && checked[index]) || unchecked[index]
-
-                  // Get Data based on the view the user is on
-                  if (view) {
-                    setXEffectData(
-                      getXEffectData(progress, isChecked, MAX_XEFFECT_SIZE)
-                    )
-                  } else {
-                    setCalendarData(getCalendarData(progress, isChecked))
-                  }
-                }}
-                list={habitData}
-              />
-            )}
-            {editMode && (
+    <Container>
+      <StatusContainer>
+        <h3 style={{ zIndex: 6666 }}>{title}</h3>
+        {/* {!editMode && habitTitle} */}
+        {/* {editMode && (
               <input
                 type="text"
                 value={newTitle}
@@ -177,11 +108,10 @@ const HabitStats = ({ path }) => {
                   minWidth: "300px",
                 }}
               />
-            )}
-          </h3>
-          <SwitchViewButton enabled={view} onClick={toggleView} />
-        </StatusContainer>
-        <EditButton
+            )} */}
+        <SwitchViewButton enabled={view} onClick={toggleView} />
+      </StatusContainer>
+      {/* <EditButton
           onClick={toggleEditMode}
           enabled={editMode}
           onConfirm={onChangeTitle}
@@ -190,40 +120,39 @@ const HabitStats = ({ path }) => {
             const res = confirm("Are you sure you want to remove this habit?")
             console.log("Confirm Response", res)
           }}
+        /> */}
+      {view ? (
+        <XEffectView
+          data={xEffectData}
+          size={{ col: MAX_XEFFECT_SIZE / 5, row: MAX_XEFFECT_SIZE / 5 }}
+          onCheck={onCheckHandler}
+          onUncheck={onUncheckHandler}
         />
-        {view ? (
-          <XEffectView
-            data={xEffectData}
-            size={{ col: MAX_XEFFECT_SIZE / 5, row: MAX_XEFFECT_SIZE / 5 }}
-            onCheck={onCheckHandler}
-            onUncheck={onUncheckHandler}
-          />
-        ) : (
-          <CalendarView
-            data={calendarData}
-            onCheck={onCheckHandler}
-            onUncheck={onUncheckHandler}
-          />
-        )}
-        <StatHighlight
-          title="Current Streak"
-          statValue={(streak > 0 && streak) || 0}
-          primaryColor="rgba(138, 203, 136, 0.25)"
-          secondaryColor="#8ACB88"
+      ) : (
+        <CalendarView
+          data={calendarData}
+          onCheck={onCheckHandler}
+          onUncheck={onUncheckHandler}
         />
-        <StatHighlight
-          title="Best Streak"
-          statValue={bestStreak}
-          primaryColor="rgba(102, 199, 244, 0.25)"
-          secondaryColor="#66C7F4"
-        />
-      </Container>
-    </AppLayout>
+      )}
+      <StatHighlight
+        title="Current Streak"
+        statValue={(streak > 0 && streak) || 0}
+        primaryColor="rgba(138, 203, 136, 0.25)"
+        secondaryColor="#8ACB88"
+      />
+      <StatHighlight
+        title="Best Streak"
+        statValue={bestStreak}
+        primaryColor="rgba(102, 199, 244, 0.25)"
+        secondaryColor="#66C7F4"
+      />
+    </Container>
   )
 }
 
 HabitStats.propTypes = {
-  path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default HabitStats
