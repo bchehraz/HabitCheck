@@ -6,7 +6,7 @@ import PrivateRoute from "components/PrivateRoute"
 import Status from "components/Status"
 
 import Today from "components/Today"
-import HabitStats from "components/HabitStats"
+import SettingsPage from "./SettingsPage"
 import Journal from "components/Journal"
 import { AuthProvider } from "context/auth-context"
 import { isLoggedIn, onLoginSuccess } from "utils/auth"
@@ -148,8 +148,8 @@ const AppHome = () => {
       <Router>
         {token && <Redirect from="/app/login" to="/app" exact noThrow />}
         <PrivateRoute path="/app" component={Today} />
-        <PrivateRoute path="/app/stats" component={HabitStats} />
         <PrivateRoute path="/app/journal" component={Journal} />
+        <PrivateRoute path="/app/settings" component={SettingsPage} />
         <Login path="/app/login" />
       </Router>
     </AuthProvider>

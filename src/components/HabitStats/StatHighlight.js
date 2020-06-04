@@ -12,6 +12,7 @@ const Container = styled.div`
   align-items: center;
   padding: 10px 1rem;
   margin: 10px 0;
+  user-select: none;
 
   h3 {
     padding: 0;

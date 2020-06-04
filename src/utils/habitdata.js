@@ -1,20 +1,49 @@
 import { isBrowser } from "./helpers"
-import { getUserData, setUserData } from "./auth"
+import { getHabits, setHabits } from "./auth"
+
+const isValidIndex = index => {
+  if (!index && index !== 0) {
+    console.log(`<Error> Cannot perform habit action at index ${index}`)
+    return false
+  }
+  return true
+}
+
+const dateToUTC = date => {
+  return Date.UTC(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+    date.getUTCHours()
+  )
+}
+
+const checkForUpdate = (today, lastUpdate) => {
+  const date = new Date(lastUpdate)
+  if (today.setHours(0, 0, 0, 0) !== date.setHours(0, 0, 0, 0)) {
+    window.location.reload()
+    return true
+  }
+  return false
+}
+
+const isBestStreak = (today, bestStreakDate) => {
+  bestStreakDate = new Date(bestStreakDate)
+  return today.setHours(0, 0, 0, 0) === bestStreakDate.setHours(0, 0, 0, 0)
+}
 
 export const handleCheckHabit = habitIndex => {
   if (!isBrowser) return
 
-  if (!habitIndex && habitIndex !== 0) {
-    console.log(
-      `<Error> Invalid Habit Index passed into check habit function ${habitIndex}`
-    )
-    return
+  if (!isValidIndex(habitIndex)) {
+    return false
   }
 
-  let data = getUserData()
+  //let data = getUserData()
+  let habits = getHabits()
 
   //get the habit we want to check off
-  let habit = data.habits.unchecked[habitIndex]
+  let habit = habits.unchecked[habitIndex]
   if (!habit) {
     console.log("<Error> Checking habit failed, Index: " + habitIndex)
     return false
@@ -23,77 +52,73 @@ export const handleCheckHabit = habitIndex => {
   // Catch the case where the user attempts to check a habit,
   // where the habits have yet to be updated
   let today = new Date()
-  if (data.habits.lastUpdate !== null) {
-    const date = new Date(data.habits.lastUpdate)
-    if (today.setHours(0, 0, 0, 0) !== date.setHours(0, 0, 0, 0)) {
-      return window.location.reload()
-    }
+  if (checkForUpdate(today, habits.lastUpdate)) {
+    return false
   }
 
-  let streak = 1
-  if (habit.progress.length === 0) {
-    // no progress exists, or streak is 0!
+  /**** NEW ****/
+  let { progress } = habit
+  const { length } = progress
+
+  let currentStreak = length !== 0 ? progress[length - 1].streak : 0
+
+  console.log("<Check Habit Action>")
+  console.log("Current Streak Value", currentStreak)
+
+  if (currentStreak > 0) {
+    // If on a positive streak
+    // first check if there's a new 'best streak'
+    let { bestStreak, bestStreakDate } = habit
+    console.log("Best Streak", bestStreak)
+    console.log("Best Streak Date", bestStreakDate)
+    if (habit.bestStreak === currentStreak) {
+      bestStreak++
+      bestStreakDate = dateToUTC(today)
+    }
+
+    // update habits with new streak and bestStreak values
+    progress[length - 1].streak++
+    habit = {
+      ...habit,
+      bestStreak,
+      bestStreakDate,
+      lastBestStreakDate: habit.bestStreakDate,
+      progress: [...progress],
+    }
+  } else {
+    // If on a negative streak or there is no progress yet
+    const utcNow = dateToUTC(today)
+
+    if (length === 0) {
+      //in the case where there's no progress yet...
+      habit.bestStreak = 1
+      habit.bestStreakDate = utcNow
+    }
+
     habit = {
       ...habit,
       progress: [
+        ...progress,
         {
-          date: Date.UTC(
-            today.getFullYear(),
-            today.getMonth(),
-            today.getDate(),
-            today.getUTCHours()
-          ),
-          streak,
+          date: utcNow,
+          streak: 1,
         },
       ],
     }
-  } else {
-    const { length } = habit.progress
-    let current = habit.progress[length - 1]
-    let { progress } = habit
-
-    if (current.streak < 0) {
-      progress.push({
-        date: Date.UTC(
-          today.getFullYear(),
-          today.getMonth(),
-          today.getDate(),
-          today.getUTCHours()
-        ),
-        streak,
-      })
-    } else if (current.streak > 0) {
-      streak = current.streak + 1
-      progress[length - 1] = {
-        ...current,
-        streak,
-      }
-    } else {
-      console.log("<Error> handleCheckHabit discovered a streak of 0")
-    }
-
-    habit.progress = [...progress]
   }
-  // Set a new Best Streak if this new streak surpasses the previous Best Streak
-  if (streak > habit.bestStreak) {
-    //set a value in the progress marking the current
-    habit.bestStreak += 1
-    let now = new Date()
-    habit.bestStreakDate = Date.UTC(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getUTCHours()
-    )
-  }
-  data.habits.unchecked.splice(habitIndex, 1)
-  data.habits.checked = [habit, ...data.habits.checked]
+
+  //Since we're checking off a habit, remove the item from unchecked
+  // and add it to checked habits
+  habits.unchecked.splice(habitIndex, 1)
+  habits.checked = [habit, ...habits.checked]
 
   //update habit map
-  data.habits.map = { ...getNewHabitMap(data.habits) }
+  habits.map = { ...getNewHabitMap(habits) }
 
-  setUserData(data)
-  return data.habits
+  setHabits(habits)
+
+  console.log("Checked a habit:", habit)
+  return habits
 }
 
 export const handleUncheckHabit = habitIndex => {
@@ -102,15 +127,12 @@ export const handleUncheckHabit = habitIndex => {
   /// ---- If an older streak is NOT found, remove the progress.
   if (!isBrowser) return
 
-  if (!habitIndex && habitIndex !== 0) {
-    console.log(
-      `<Error> Invalid Habit Index passed into check habit function ${habitIndex}`
-    )
-    return
+  if (!isValidIndex(habitIndex)) {
+    return false
   }
 
-  let data = getUserData()
-  let habit = data.habits.checked[habitIndex]
+  let habits = getHabits()
+  let habit = habits.checked[habitIndex]
 
   if (!habit) {
     console.log("<Error> Unchecking habit failed, Index: " + habitIndex)
@@ -118,65 +140,43 @@ export const handleUncheckHabit = habitIndex => {
   }
 
   const today = new Date()
-  if (data.habits.lastUpdate !== null) {
-    const date = new Date(data.habits.lastUpdate)
-    if (today.setHours(0, 0, 0, 0) !== date.setHours(0, 0, 0, 0)) {
-      return window.location.reload()
-    }
+  // reload page if habits have yet to be auto-updated
+  if (checkForUpdate(today, habits.lastUpdate)) {
+    return false
   }
 
-  const { length } = habit.progress
-  let current = habit.progress[length - 1]
-  let { progress } = habit
+  let { progress, bestStreak, bestStreakDate, lastBestStreakDate } = habit
+  const { length } = progress
+  let currentStreak = progress[length - 1].streak
 
-  if (current.streak > 1) {
-    progress[length - 1] = {
-      ...current,
-      streak: current.streak - 1,
-    }
-  } else if (current.streak === 1) {
+  if (bestStreak === currentStreak && isBestStreak(today, bestStreakDate)) {
+    bestStreak--
+    bestStreakDate = lastBestStreakDate
+  }
+
+  if (currentStreak === 1) {
     progress.pop()
+  } else if (currentStreak > 1) {
+    progress[length - 1].streak--
   }
 
-  if (current.streak === habit.bestStreak) {
-    //check to see if the current streak IS the best streak value
-    if (habit.bestStreakDate) {
-      //only if the newBestStreak is checked, subtract 1 from the best streak as well.
-      // if newBestStreak is not set, it means a previous streak had set this new streak.
-      // This is unique to unchecking an item that is already checked
-      let bestStreakDate = new Date(habit.bestStreakDate)
-      if (today.setHours(0, 0, 0, 0) === bestStreakDate.setHours(0, 0, 0, 0)) {
-        habit.bestStreak -= 1
-        // Since we are unchecking a current best streak,
-        // set the bestStreakDate to yesterday...?
-
-        const yesterday = new Date()
-        yesterday.setDate(today.getDate() - 1)
-
-        habit.bestStreakDate = Date.UTC(
-          yesterday.getFullYear(),
-          yesterday.getMonth(),
-          yesterday.getDate(),
-          yesterday.getUTCHours()
-        )
-      }
-    }
+  habit = {
+    ...habit,
+    bestStreak,
+    bestStreakDate,
+    progress: [...progress],
   }
 
-  //lets say we have 2 streaks
-  // you reach the first streak of 60
-  // 1. Determine the new best streak value if you unchecked.
-  // 2. Determine the best streak value if you were at 61 days then subtracted to 60
-
-  habit.progress = [...progress]
-  data.habits.checked.splice(habitIndex, 1)
-  data.habits.unchecked.unshift(habit)
+  habits.checked.splice(habitIndex, 1)
+  habits.unchecked.unshift(habit)
 
   //update habit map
-  data.habits.map = { ...getNewHabitMap(data.habits) }
+  habits.map = { ...getNewHabitMap(habits) }
 
-  setUserData(data)
-  return data.habits
+  setHabits(habits)
+
+  console.log("Unchecking Habit", habit)
+  return habits
 }
 
 export const addHabit = title => {
@@ -184,28 +184,23 @@ export const addHabit = title => {
 
   const newHabit = {
     title,
-    startDate: Date.UTC(
-      new Date().getFullYear(),
-      new Date().getMonth(),
-      new Date().getDate(),
-      new Date().getUTCHours()
-    ),
+    startDate: dateToUTC(new Date()),
     progress: [],
     bestStreak: 0,
   }
 
-  let data = getUserData()
+  let habits = getHabits()
 
-  data.habits.unchecked = [newHabit, ...data.habits.unchecked]
+  habits.unchecked = [newHabit, ...habits.unchecked]
 
-  data.habits.map = {
-    ...data.habits.map,
-    ...updateHabitMap(data.habits.unchecked),
+  habits.map = {
+    ...habits.map,
+    ...updateHabitMap(habits.unchecked),
   }
 
-  setUserData(data)
+  setHabits(habits)
 
-  return data.habits
+  return habits
 }
 
 const getNewHabitMap = habits => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { FiCheckSquare } from "react-icons/fi"
+import { FiCheckSquare, FiSettings } from "react-icons/fi"
 import { FaChartArea, FaBookOpen } from "react-icons/fa"
 import _ from "lodash"
 
@@ -75,16 +75,10 @@ const TabSelection = styled.div`
   transition: all 300ms ease-out;
 `
 
-const LinkStyle = styled.span`
-  a {
-    ${({ applyStyle }) => applyStyle && "color: green"}
-  }
-`
-
 const getTabIcon = isActive => {
   const size = isActive ? 40 : 32
   return {
-    "Habit Stats": <FaChartArea size={size} />,
+    Settings: <FiSettings size={size} />,
     Today: <FiCheckSquare size={size} className="todayIcon" />,
     "Your Journal": <FaBookOpen size={size} className="journalIcon" />,
   }
@@ -105,23 +99,13 @@ const FooterNav = ({ currentPage }) => {
   return (
     <Container>
       <Navigation className="footer">
-        <Link to="/app/stats">{getTab(currentPage, "Habit Stats")}</Link>
         <Link to="/app/">{getTab(currentPage, "Today")}</Link>
         <Link to="/app/journal">{getTab(currentPage, "Your Journal")}</Link>
+        <Link to="/app/settings">{getTab(currentPage, "Settings")}</Link>
       </Navigation>
     </Container>
   )
 }
-
-/*
-
-
-
-  <LinkStyle applyStyle={currentPage === "Today"}><Link to="/app">Today</Link></LinkStyle>{` - `}
-  <LinkStyle applyStyle={currentPage === "Habit Stats"}><Link to="/app/stats">Habit Stats</Link></LinkStyle>{` - `}
-  <LinkStyle applyStyle={currentPage === "Your Journal"}><Link to="/app/journal">Your Journal</Link></LinkStyle>
-
-*/
 
 FooterNav.propTypes = {
   currentPage: PropTypes.string.isRequired,
