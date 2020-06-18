@@ -5,17 +5,18 @@ import Login from "components/Login"
 import PrivateRoute from "components/PrivateRoute"
 import Status from "components/Status"
 
-import Today from "components/Today"
+import Today from "components/Today/Today"
 import SettingsPage from "./SettingsPage"
 import Journal from "components/Journal"
 import { AuthProvider } from "context/auth-context"
 import { isLoggedIn, onLoginSuccess } from "utils/auth"
-import { handleCheckHabit, handleUncheckHabit, addHabit } from "utils/habitdata"
+import { handleHabitAction, addHabit } from "utils/HabitData"
 import {
   handleToggleDarkMode,
   handleToggleXEffectView,
 } from "utils/preferences"
 import newHabitTitle from "utils/HabitData/newHabitTitle"
+import { updateHabits } from "../utils/HabitData"
 
 const initState = {
   token: null,
@@ -41,6 +42,10 @@ const AppHome = () => {
 
   useEffect(() => {
     const { token, userId, email, data, preferences } = isLoggedIn()
+
+    if (token) {
+      data.habits = updateHabits(data.habits)
+    }
 
     return setLoginData({ token, userId, email, data, preferences })
   }, [])
@@ -79,8 +84,9 @@ const AppHome = () => {
             },
           })
         },
-        checkHabit: habitIndex => {
-          const updatedHabits = handleCheckHabit(habitIndex)
+        checkHabit: habitTitle => {
+          const updatedHabits = handleHabitAction(habitTitle)
+
           if (!updatedHabits) {
             return
           }
@@ -93,8 +99,8 @@ const AppHome = () => {
             },
           })
         },
-        uncheckHabit: habitIndex => {
-          const updatedHabits = handleUncheckHabit(habitIndex)
+        uncheckHabit: habitTitle => {
+          const updatedHabits = handleHabitAction(habitTitle)
 
           if (!updatedHabits) {
             return
