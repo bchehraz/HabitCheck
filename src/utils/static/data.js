@@ -52,12 +52,12 @@ export const data = {
     checked: [
       {
         title: "90 min Yoga",
-        startDate: Date.UTC(2019, 11, 1, hour),
+        startDate: Date.UTC(2020, 5, 10, hour),
         bestStreak: 1,
-        bestStreakDate: Date.UTC(2019, 11, 1, hour),
+        bestStreakDate: Date.UTC(2020, 5, 10, hour),
         progress: [
           {
-            date: Date.UTC(2019, 11, 1, hour),
+            date: Date.UTC(2020, 5, 10, hour),
             streak: 1,
           },
         ],
