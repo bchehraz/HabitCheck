@@ -1,5 +1,5 @@
-import { getXEffectData } from "../XEffectData"
-import { data } from "../../static/updatedDataSet1"
+import { getXEffectData } from "./XEffectData"
+import { data } from "../static/updatedDataSet1"
 
 // Obviously getXEffectDAta doesn't care what day it is, but
 // - this output assumes the data is updated up until 12/5/2019

@@ -1,10 +1,10 @@
 import _ from "lodash"
-import newHabitTitle from "../newHabitTitle"
-import { getUserData } from "../../auth"
+import newHabitTitle from "./newHabitTitle"
+import { getUserData } from "../auth"
 
 // Mock the following files
-jest.mock("../../auth")
-jest.mock("../../helpers")
+jest.mock("../auth")
+jest.mock("../helpers")
 
 describe("newHabitTitle Test", () => {
   it("Should correctly manipulate cache data using mocked functions", () => {

@@ -1,4 +1,4 @@
-import { formatCalendarData } from "../"
+import { formatCalendarData } from "./"
 
 // formatCalendarData Function Test
 

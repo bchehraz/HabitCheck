@@ -1,6 +1,6 @@
 import { advanceTo, clear } from "jest-date-mock"
-import { getCalendarData, daysInMonth } from "../"
-import { data } from "../../../static/updatedDataSet1"
+import { getCalendarData, daysInMonth } from "./"
+import { data } from "../../static/updatedDataSet1"
 
 // Testing funtions getCalendarData and daysInMonth
 
