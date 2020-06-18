@@ -1,6 +1,6 @@
 import { isBrowser } from "./helpers"
 import { data as _DATA } from "./static/data"
-import { updateHabits } from "./updateHabits"
+import { updateHabits } from "./HabitData"
 
 /****
   Testing? Set testing to true. If you want to access saved values, set to false!
@@ -28,6 +28,14 @@ const setUser = user => {
   }
 }
 
+const getUserData = () => {
+  return getCurrentUser().data
+}
+
+export const setUserData = data => {
+  setUser({ ...getCurrentUser(), data })
+}
+
 const wipeTestUserOnly = user => {
   if (!isBrowser) return
   window.localStorage.user = JSON.stringify(user)
@@ -40,30 +48,13 @@ export const isLoggedIn = () => {
   if (!token) {
     return false
   }
-  const habits = updateHabits(data)
+  //data.habits = updateHabits(data.habits)
 
-  let map = {}
-  habits.checked.forEach((habit, index) => {
-    map[habit.title] = { index, isChecked: true }
-  })
-
-  habits.unchecked.forEach((habit, index) => {
-    map[habit.title] = { index, isChecked: false }
-  })
-  habits.map = { ...map }
-
-  const userData = {
-    ...data,
-    habits,
-  }
-  if (habits) {
-    setUserData(userData)
-  }
   return {
     token,
     userId,
     email,
-    data: userData,
+    data,
     preferences,
   }
 }
@@ -88,22 +79,7 @@ export const onLoginSuccess = (
 
 export const getCurrentUser = () => isBrowser && getUser()
 
-export const getUserData = () => {
-  return getCurrentUser().data
-}
-
-export const setUserData = data => {
-  setUser({ ...getCurrentUser(), data })
-}
-
-export const getHabits = () => {
-  return getCurrentUser().data.habits
-}
-
-export const setHabits = habits => {
-  const user = getCurrentUser()
-  setUser({ ...user, data: { ...user.data, habits: { ...habits } } })
-}
+export const getCurrentUserData = () => isBrowser && getUserData()
 
 export const logout = callback => {
   if (!isBrowser) return
@@ -130,16 +106,8 @@ export const logout = callback => {
 export const login = () => {
   if (!isBrowser) return false
 
-  const habits = updateHabits(_DATA)
-  let map = {}
-  habits.checked.forEach((habit, index) => {
-    map[habit.title] = { index, isChecked: true }
-  })
+  const habits = updateHabits(_DATA.habits)
 
-  habits.unchecked.forEach((habit, index) => {
-    map[habit.title] = { index, isChecked: false }
-  })
-  habits.map = { ...map }
   return {
     token: "12345",
     userId: "12345",
@@ -156,10 +124,7 @@ export const login = () => {
   }
 }
 
-export const getUserPreferences = () => {
-  if (!isBrowser) return
-  return getUser().preferences
-}
+export const getUserPreferences = () => isBrowser && getUser().preferences
 
 export const setUserPreferences = preferences => {
   if (!isBrowser) return
