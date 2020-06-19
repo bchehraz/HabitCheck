@@ -4,6 +4,10 @@
 
 [![CircleCI](https://circleci.com/gh/bchehraz/HabitCheck/tree/staging.svg?style=svg&circle-token=fb833bb6decbfff142aaac6cbf0e200dcecaf4cd)](https://circleci.com/gh/bchehraz/HabitCheck/tree/staging) (Staging)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c3b3fe58-a438-43e5-8c4e-f59d58ad74e7/deploy-status)](https://app.netlify.com/sites/habitcheck/deploys) (Master)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1d3e8b33-f843-4291-a497-14ad05b6c91a/deploy-status)](https://app.netlify.com/sites/habitcheckstaging/deploys) (Staging)
+
 # Documentation
 
 ## Table of Contents
