@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/gh/bchehraz/HabitCheck/branch/master/graph/badge.svg?token=E4fl4A6gli)](https://codecov.io/gh/bchehraz/HabitCheck)
 
-[![CircleCI](https://circleci.com/gh/bchehraz/HabitCheck.svg?style=svg&circle-token=fb833bb6decbfff142aaac6cbf0e200dcecaf4cd)](https://circleci.com/gh/bchehraz/HabitCheck)
+[![CircleCI](https://circleci.com/gh/bchehraz/HabitCheck/tree/staging.svg?style=svg&circle-token=fb833bb6decbfff142aaac6cbf0e200dcecaf4cd)](https://circleci.com/gh/bchehraz/HabitCheck/tree/staging) (Staging)
 
 # Documentation
 
