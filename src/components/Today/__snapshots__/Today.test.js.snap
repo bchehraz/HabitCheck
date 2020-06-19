@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Today: Snapshot test 1`] = `
+exports[`Today.js Snapshot Test Today: Snapshot test 1`] = `
 Array [
   <header>
     <div
@@ -10,7 +10,7 @@ Array [
         Today
       </h1>
       <p>
-        Thursday, June 18 2020
+        Saturday, July 4 2020
       </p>
     </div>
   </header>,

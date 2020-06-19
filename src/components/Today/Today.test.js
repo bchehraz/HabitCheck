@@ -7,13 +7,17 @@ import Today from "./Today.js"
 import { AuthProvider } from "../../context/auth-context"
 import { data } from "../../utils/static/data"
 
-test("Today: Snapshot test", () => {
-  advanceTo(new Date())
-  const tree = renderer
-    .create(<Today path="/app/" handleAddHabit={() => {}} />)
-    .toJSON()
-  expect(tree).toMatchSnapshot()
-  clear()
+describe("Today.js Snapshot Test", () => {
+  // Mock date prior to running snapshot test since the date is visible in the component
+  beforeEach(() => advanceTo(new Date("7/4/2020")))
+
+  test("Today: Snapshot test", () => {
+    const tree = renderer
+      .create(<Today path="/app/" handleAddHabit={() => {}} />)
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+    clear()
+  })
 })
 
 test("Today: Render with empty habit data, fresh context", () => {
