@@ -1,5 +1,7 @@
 import React from "react"
 
+/* eslint-disable */
+
 const AuthContext = React.createContext({
   token: null,
   userId: null,
@@ -18,7 +20,6 @@ const AuthContext = React.createContext({
     xEffectView: false,
     selected: 0,
   },
-  // eslint-disable-next-line
   login: (token, userId, tokenExpiration, email, data, preferences) => {},
   logout: () => {},
   newHabit: habit => {},
@@ -26,6 +27,7 @@ const AuthContext = React.createContext({
   uncheckHabit: (habitIndex, callback) => {},
   toggleDarkMode: () => {},
   toggleXEffectView: () => {},
+  changeHabitTitle: (title, newTitle) => {},
 })
 
 export const AuthProvider = AuthContext.Provider

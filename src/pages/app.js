@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react"
 import { Router, Redirect } from "@reach/router"
 
-// import LayoutController from '../components/LayoutController';
 import Login from "components/Login"
 import PrivateRoute from "components/PrivateRoute"
 import Status from "components/Status"
 
-// import App from '../components/App';
-import Today from "components/Today"
-import HabitStats from "components/HabitStats"
+import Today from "components/Today/Today"
+import SettingsPage from "./SettingsPage"
 import Journal from "components/Journal"
 import { AuthProvider } from "context/auth-context"
 import { isLoggedIn, onLoginSuccess } from "utils/auth"
-import { handleCheckHabit, handleUncheckHabit, addHabit } from "utils/habitdata"
+import { handleHabitAction, addHabit } from "utils/HabitData"
 import {
   handleToggleDarkMode,
   handleToggleXEffectView,
 } from "utils/preferences"
+import newHabitTitle from "utils/HabitData/newHabitTitle"
+import { updateHabits } from "../utils/HabitData"
 
 const initState = {
   token: null,
@@ -42,6 +42,10 @@ const AppHome = () => {
 
   useEffect(() => {
     const { token, userId, email, data, preferences } = isLoggedIn()
+
+    if (token) {
+      data.habits = updateHabits(data.habits)
+    }
 
     return setLoginData({ token, userId, email, data, preferences })
   }, [])
@@ -80,8 +84,9 @@ const AppHome = () => {
             },
           })
         },
-        checkHabit: habitIndex => {
-          const updatedHabits = handleCheckHabit(habitIndex)
+        checkHabit: habitTitle => {
+          const updatedHabits = handleHabitAction(habitTitle)
+
           if (!updatedHabits) {
             return
           }
@@ -94,8 +99,8 @@ const AppHome = () => {
             },
           })
         },
-        uncheckHabit: habitIndex => {
-          const updatedHabits = handleUncheckHabit(habitIndex)
+        uncheckHabit: habitTitle => {
+          const updatedHabits = handleHabitAction(habitTitle)
 
           if (!updatedHabits) {
             return
@@ -130,14 +135,27 @@ const AppHome = () => {
             preferences: { ...loginData.preferences, selected: selected },
           })
         },
+        changeHabitTitle: (title, newTitle) => {
+          const update = newHabitTitle(title, newTitle)
+          console.log("Update after context", update.lastUpdate)
+          setLoginData({
+            ...loginData,
+            data: {
+              ...loginData.data,
+              habits: {
+                ...update,
+              },
+            },
+          })
+        },
       }}
     >
       <Status />
       <Router>
         {token && <Redirect from="/app/login" to="/app" exact noThrow />}
         <PrivateRoute path="/app" component={Today} />
-        <PrivateRoute path="/app/stats" component={HabitStats} />
         <PrivateRoute path="/app/journal" component={Journal} />
+        <PrivateRoute path="/app/settings" component={SettingsPage} />
         <Login path="/app/login" />
       </Router>
     </AuthProvider>

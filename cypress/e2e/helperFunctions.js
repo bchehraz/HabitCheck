@@ -1,13 +1,21 @@
-export const navigate = page => {
-  if (page === "habitStats") {
-    cy.get(".footer")
-      .get(".habitStats")
-      .click()
-  } else if (page === "today") {
-    cy.get(".footer")
-      .get(".today")
-      .click()
-  }
+export const gotoStats = habitTitle => {
+  // if (page === "habitStats") {
+  //   cy.get(".footer")
+  //     .get(".habitStats")
+  //     .click()
+  // } else if (page === "today") {
+  //   cy.get(".footer")
+  //     .get(".today")
+  //     .click()
+  // }
+  cy.findByText(habitTitle)
+    .parent()
+    .children(".toHabitStats")
+    .click({ force: true })
+}
+
+export const goBackFromStats = () => {
+  cy.get(".backBtn").click()
 }
 
 export const listItemIsNew = habitTitle => {

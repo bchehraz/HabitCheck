@@ -7,15 +7,6 @@ const formatCalendarData = (
   onCheckListener,
   onUncheckListener
 ) => {
-  console.log("Formatting Calendar Data")
-  console.log(`Input Data >>`)
-  console.log("Calendar Data: ", calendarData)
-  console.log("Date: ", date)
-  console.log("Is it first page? ", isFirstPage)
-  console.log(onCheckListener)
-  console.log(onUncheckListener)
-  console.log(`Starting Function >>`)
-
   const offset = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
   const endOffset = new Date(
     date.getFullYear(),
@@ -84,9 +75,6 @@ const formatCalendarData = (
     data[week].unshift({ day: null })
   }
   data.reverse()
-
-  console.log(`Output Data >>`)
-  console.log(data)
 
   return data
 }

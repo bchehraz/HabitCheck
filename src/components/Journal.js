@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react"
 
-import AppLayout from './AppLayout';
+import { AppLayout } from "./Layout"
 
 const Journal = ({ path }) => (
   <AppLayout path={path}>
     <h1>{`The "Journal" Tab`}</h1>
   </AppLayout>
-);
+)
 
-export default Journal;
+export default Journal
