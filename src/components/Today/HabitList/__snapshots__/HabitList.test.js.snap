@@ -21,7 +21,7 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
           className="sc-htoDjs gndrmL"
         >
           <input
-            className="sc-dnqmqq kMUdtT habitTitleInput"
+            className="sc-dnqmqq fjzeNm habitTitleInput"
             onChange={[Function]}
             type="text"
             value=""
@@ -1485,7 +1485,7 @@ exports[`HabitList Component Snapshot renders with empty data 1`] = `
           className="sc-htoDjs gndrmL"
         >
           <input
-            className="sc-dnqmqq kMUdtT habitTitleInput"
+            className="sc-dnqmqq fjzeNm habitTitleInput"
             onChange={[Function]}
             type="text"
             value=""

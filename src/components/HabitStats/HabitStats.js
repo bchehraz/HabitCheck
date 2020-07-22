@@ -17,6 +17,12 @@ const Container = styled.div`
   text-align: center;
   margin: 0 auto;
   background-color: white;
+  padding: 0 0 20px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.29);
+
+  @media only screen and (min-width: 600px) {
+    border-radius: 17px;
+  }
 `
 
 const StatusContainer = styled.div`
@@ -43,7 +49,7 @@ const HabitStats = ({ title }) => {
 
   const { checked, unchecked } = context.data.habits
   const viewPref = context.preferences.xEffectView
-  const [view, setView] = useState(viewPref || false)
+  const [view, setView] = useState(context.preferences.xEffectView || false)
   const [calendarData, setCalendarData] = useState([])
   const [xEffectData, setXEffectData] = useState([])
   const [streak, setStreak] = useState(0)

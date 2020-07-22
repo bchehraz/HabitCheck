@@ -125,28 +125,21 @@ const TextInput = styled.input`
   color: white;
   border-bottom: 2px solid #8acb88;
 
+  ${({ error }) =>
+    error &&
+    `
+    border-bottom: 3px solid #AA4465;
+  `}
+
   @media only screen and (min-width: 450px) {
     padding: 10px 10px;
     color: #2d3142;
-    border-bottom: 2px solid #8acb88;
     font-weight: 600;
   }
 
-  ${props =>
-    props.error &&
-    `
-    border-bottom: 2px solid red;
-  `}
-
   @media only screen and (min-width: 768px) {
     font-size: 1.2em;
-    border-radius: 10px;
     background-color: white;
-    ${props =>
-      props.error &&
-      `
-    border-bottom: 2px solid red;
-  `}
   }
 `
 

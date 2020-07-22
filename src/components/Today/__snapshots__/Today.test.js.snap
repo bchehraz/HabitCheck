@@ -48,7 +48,7 @@ Array [
                 className="sc-VigVT ceejnY"
               >
                 <input
-                  className="sc-jTzLTM iSwIpV habitTitleInput"
+                  className="sc-jTzLTM fTfcBt habitTitleInput"
                   onChange={[Function]}
                   type="text"
                   value=""
@@ -113,7 +113,10 @@ Array [
         </div>
       </div>
       <div
-        className="sc-dnqmqq iTtANw"
+        className="sc-csuQGl eGzWpx"
+      />
+      <div
+        className="sc-dnqmqq loabua"
         onClick={[Function]}
       />
     </main>

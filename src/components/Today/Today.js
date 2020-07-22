@@ -9,23 +9,27 @@ import Backdrop from "../Backdrop"
 import { AuthConsumer } from "../../context/auth-context"
 
 const Modal = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  opacity: ${({ show }) => +show};
-  background-color: white;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  visibility: ${({ show }) => (show ? "visible" : "hidden")};
+  background-color: rgba(0, 0, 0, 0);
   margin: 0 auto;
-  z-index: ${props => (props.show ? 56 : -1)};
-  transition: all 300ms ease-in-out;
-  border-radius: 17px;
-  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.29);
+
+  transition: all 300ms ease-out;
+  z-index: 2000;
 
   width: 100vw;
+  height: auto;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 0 0 20px;
+
+  top: 50%;
+  bottom: 50%;
 
   @media only screen and (min-width: 600px) {
     margin-left: -200px;
@@ -56,18 +60,13 @@ const Today = ({ path }) => {
             }}
             onViewStats={selectHabit}
           />
-          {showStats && (
-            <Modal show={showStats}>
-              <HabitStats
-                viewPref2={context.preferences.xEffectView}
-                title={selectedTitle}
-              />
-            </Modal>
-          )}
+          <Modal show={showStats}>
+            {showStats && <HabitStats title={selectedTitle} show={showStats} />}
+          </Modal>
           <Backdrop
             enabled={showStats}
             onClick={() => setShowStats(false)}
-            zIndex={50}
+            zIndex={1999}
           />
         </AppLayout>
       )}

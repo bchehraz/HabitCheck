@@ -148,7 +148,7 @@ const ListItem = ({
     } else {
       setAnimated(false)
     }
-  }, [justAdded])
+  })
 
   return (
     <Container
