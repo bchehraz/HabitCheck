@@ -4,7 +4,7 @@ exports[`Today.js Snapshot Test Today: Snapshot test 1`] = `
 Array [
   <header>
     <div
-      className="sc-bdVaJa bzVTIk"
+      className="sc-bdVaJa hgqvdk"
     >
       <h1>
         Today
@@ -23,62 +23,99 @@ Array [
         "margin": "0 auto 5rem",
         "maxWidth": "100%",
         "padding": 0,
+        "position": "relative",
       }
     }
   >
     <main>
       <div
-        className="sc-EHOje YINzU habitList"
+        className="sc-EHOje jIKgRi habitList"
       >
-        <div
-          className="sc-jTzLTM gGzBmJ addHabitButton"
-          onClick={[Function]}
-        >
-          <form
-            className="sc-jzJRlG gxKHaJ"
-          >
-            <input
-              className="sc-cSHVUG bkGrRf habitTitleInput"
-              onChange={[Function]}
-              placeholder="Habit Title"
-              type="text"
-              value=""
-            />
-            <button
-              className="sc-kAzzGY ielqIA"
-              onClick={[Function]}
-            >
-              Start New Habit
-            </button>
-          </form>
+        <div>
           <div
-            className="sc-fjdhpX hDSMNz"
-            data-testid="AddHabitButtonClose"
+            className="sc-iwsKbI jbDXSk addHabitButton"
             onClick={[Function]}
           >
-            <svg
-              className="icon"
-              fill="currentColor"
-              height={25}
-              size={25}
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 448 512"
-              width={25}
-              xmlns="http://www.w3.org/2000/svg"
+            <form
+              className="sc-gqjmRU gUSZrW form"
             >
-              <path
-                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-              />
-            </svg>
+              <h4
+                className="sc-jzJRlG bNsmGJ"
+              >
+                New Habit
+              </h4>
+              <div
+                className="sc-VigVT ceejnY"
+              >
+                <input
+                  className="sc-jTzLTM iSwIpV habitTitleInput"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+                <button
+                  className="sc-fjdhpX hBpzPe"
+                  onClick={[Function]}
+                >
+                  <svg
+                    className="buttonIcon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 16 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <div
+              className="sc-gZMcBi glpbXt iconContainerOpen"
+              data-testid="AddHabitButtonClose"
+            >
+              <svg
+                className="icon"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                />
+              </svg>
+            </div>
           </div>
+          <div
+            className="sc-dnqmqq hhhkoQ"
+            onClick={[Function]}
+          />
         </div>
       </div>
+      <div
+        className="sc-dnqmqq iTtANw"
+        onClick={[Function]}
+      />
     </main>
   </div>,
   <div

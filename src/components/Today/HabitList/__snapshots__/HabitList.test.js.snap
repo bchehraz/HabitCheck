@@ -2,711 +2,1462 @@
 
 exports[`HabitList Component Snapshot renders with data 1`] = `
 <div
-  className="sc-bdVaJa UoSJW habitList"
+  className="sc-bdVaJa iySDgz habitList"
 >
-  <div
-    className="sc-dnqmqq dpSPbp addHabitButton"
-    onClick={[Function]}
-  >
-    <form
-      className="sc-gZMcBi jycsnz"
-    >
-      <input
-        className="sc-gqjmRU bqvVwe habitTitleInput"
-        onChange={[Function]}
-        placeholder="Habit Title"
-        type="text"
-        value=""
-      />
-      <button
-        className="sc-VigVT bWbPmZ"
-        onClick={[Function]}
-      >
-        Start New Habit
-      </button>
-    </form>
+  <div>
     <div
-      className="sc-iwsKbI fzjTmq"
-      data-testid="AddHabitButtonClose"
+      className="sc-EHOje jFcgZ addHabitButton"
       onClick={[Function]}
     >
-      <svg
-        className="icon"
-        fill="currentColor"
-        height={25}
-        size={25}
-        stroke="currentColor"
-        strokeWidth="0"
-        style={
-          Object {
-            "color": undefined,
-          }
-        }
-        viewBox="0 0 448 512"
-        width={25}
-        xmlns="http://www.w3.org/2000/svg"
+      <form
+        className="sc-gzVnrw SQHRd form"
       >
-        <path
-          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-        />
-      </svg>
+        <h4
+          className="sc-gZMcBi cXBBzz"
+        >
+          New Habit
+        </h4>
+        <div
+          className="sc-htoDjs gndrmL"
+        >
+          <input
+            className="sc-dnqmqq kMUdtT habitTitleInput"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <button
+            className="sc-iwsKbI cpMpqE"
+            onClick={[Function]}
+          >
+            <svg
+              className="buttonIcon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+      <div
+        className="sc-bZQynM ilJXDS iconContainerOpen"
+        data-testid="AddHabitButtonClose"
+      >
+        <svg
+          className="icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 448 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+          />
+        </svg>
+      </div>
     </div>
+    <div
+      className="sc-ifAKCX hnDoim"
+      onClick={[Function]}
+    />
   </div>
   <div
-    checked={false}
-    className="sc-bwzfXH czpHjw"
-    data-testid="HabitListItem"
+    className="sc-gqjmRU bSRDtT"
   >
     <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      Work on HabitCheck
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
+      checked={false}
+      className="sc-VigVT cGXRxX show"
+      data-testid="HabitListItem"
     >
       <div
-        className="sc-bZQynM hdGNlT"
+        checked={false}
+        className="sc-jTzLTM bPtCer"
       >
-        <p
+        <div
+          className="sc-bwzfXH hKDnPi"
+        >
+          <p
+            style={
+              Object {
+                "margin": 0,
+                "padding": "0 10px",
+              }
+            }
+          >
+            NEW
+          </p>
+        </div>
+      </div>
+      <div
+        checked={false}
+        className="sc-fjdhpX bQBjSL"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
           style={
             Object {
               "margin": 0,
             }
           }
         >
-          NEW
-        </p>
-      </div>
-      <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "border": "1px solid #2D3142",
-              "borderRadius": "4px",
-              "color": "white",
-            }
-          }
-          viewBox="0 0 448 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    checked={false}
-    className="sc-bwzfXH czpHjw"
-    data-testid="HabitListItem"
-  >
-    <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      TEST_DATA_1
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
-    >
-      <div
-        className="sc-bZQynM YtxGS"
-      >
+          Work on HabitCheck
+        </h4>
         <div
-          className="sc-gzVnrw hRMOLE"
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
         >
-          <p
-            className="number"
-            style={
-              Object {
-                "fontSize": 18,
-              }
-            }
-          >
-            24
-          </p>
-          <span
-            aria-hidden="false"
-            aria-label="fire"
-            className="emoji"
-            role="img"
-            style={
-              Object {
-                "fontSize": 19,
-              }
-            }
-          >
-            🔥
-          </span>
-        </div>
-      </div>
-      <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "border": "1px solid #2D3142",
-              "borderRadius": "4px",
-              "color": "white",
-            }
-          }
-          viewBox="0 0 448 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    checked={false}
-    className="sc-bwzfXH czpHjw"
-    data-testid="HabitListItem"
-  >
-    <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      Quit Smoking
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
-    >
-      <div
-        className="sc-bZQynM YtxGS"
-      >
-        <div
-          className="sc-gzVnrw hRMOLE"
-        >
-          <p
-            className="number"
-            style={
-              Object {
-                "fontSize": 18,
-              }
-            }
-          >
-            40
-          </p>
-          <span
-            aria-hidden="false"
-            aria-label="fire"
-            className="emoji"
-            role="img"
-            style={
-              Object {
-                "fontSize": 19,
-              }
-            }
-          >
-            🔥
-          </span>
-        </div>
-      </div>
-      <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "border": "1px solid #2D3142",
-              "borderRadius": "4px",
-              "color": "white",
-            }
-          }
-          viewBox="0 0 448 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    checked={false}
-    className="sc-bwzfXH eMRxBi"
-    data-testid="HabitListItem"
-  >
-    <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      Meditate
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
-    >
-      <div
-        className="sc-bZQynM cNTHXA"
-      >
-        <div
-          className="sc-gzVnrw hRMOLE"
-        >
-          <p
-            className="number"
-            style={
-              Object {
-                "fontSize": 18,
-              }
-            }
-          >
-            -3
-          </p>
           <div
-            className="sc-htoDjs btkSIL"
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
           >
             <svg
-              fill="none"
-              height={21}
-              size={21}
+              className="checkbox"
+              fill="currentColor"
+              height="1em"
               stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth="0"
               style={
                 Object {
-                  "color": undefined,
+                  "border": "1px solid #2D3142",
+                  "borderRadius": "4px",
+                  "color": "white",
                 }
               }
-              viewBox="0 0 24 24"
-              width={21}
+              viewBox="0 0 448 512"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <polyline
-                points="23 18 13.5 8.5 8.5 13.5 1 6"
-              />
-              <polyline
-                points="17 18 23 18 23 12"
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
               />
             </svg>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={false}
+      className="sc-chPdSV mkaiS show"
+      data-testid="HabitListItemMobile"
+    >
       <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        Work on HabitCheck
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
       >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "border": "1px solid #2D3142",
-              "borderRadius": "4px",
-              "color": "white",
-            }
-          }
-          viewBox="0 0 448 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          className="sc-bwzfXH lcrWSL"
         >
-          <path
-            d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-          />
-        </svg>
+          <p
+            style={
+              Object {
+                "margin": 0,
+                "padding": "0 10px",
+              }
+            }
+          >
+            NEW
+          </p>
+        </div>
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="checkbox"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "border": "1px solid #2D3142",
+                "borderRadius": "4px",
+                "color": "white",
+              }
+            }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
   <div
-    checked={false}
-    className="sc-bwzfXH eMRxBi"
-    data-testid="HabitListItem"
+    className="sc-gqjmRU bSRDtT"
   >
     <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      Sleep on time
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
+      checked={false}
+      className="sc-VigVT cGXRxX show"
+      data-testid="HabitListItem"
     >
       <div
-        className="sc-bZQynM cNTHXA"
+        checked={false}
+        className="sc-jTzLTM jZQuAq"
       >
         <div
-          className="sc-gzVnrw hRMOLE"
+          className="sc-bwzfXH eJyNuA"
         >
-          <p
-            className="number"
-            style={
-              Object {
-                "fontSize": 18,
-              }
-            }
-          >
-            -1
-          </p>
           <div
-            className="sc-htoDjs btkSIL"
+            className="sc-htpNat hFNCHh"
           >
-            <svg
-              fill="none"
-              height={21}
-              size={21}
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
+            <p
+              className="number"
+            >
+              24
+            </p>
+            <span
+              aria-hidden="false"
+              aria-label="fire"
+              className="emoji"
+              role="img"
               style={
                 Object {
-                  "color": undefined,
+                  "fontSize": 19,
                 }
               }
-              viewBox="0 0 24 24"
-              width={21}
+            >
+              🔥
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        checked={false}
+        className="sc-fjdhpX kFIYBd"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          TEST_DATA_1
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="checkbox"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "border": "1px solid #2D3142",
+                  "borderRadius": "4px",
+                  "color": "white",
+                }
+              }
+              viewBox="0 0 448 512"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <polyline
-                points="23 18 13.5 8.5 8.5 13.5 1 6"
-              />
-              <polyline
-                points="17 18 23 18 23 12"
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
               />
             </svg>
           </div>
         </div>
       </div>
-      <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "border": "1px solid #2D3142",
-              "borderRadius": "4px",
-              "color": "white",
-            }
-          }
-          viewBox="0 0 448 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-          />
-        </svg>
-      </div>
     </div>
   </div>
   <div
-    checked={true}
-    className="sc-bwzfXH bzAqRj"
-    data-testid="HabitListItem"
+    className="sc-gqjmRU cyqUVX"
   >
     <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      90 min Yoga
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
+      checked={false}
+      className="sc-chPdSV mkaiS show"
+      data-testid="HabitListItemMobile"
     >
       <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 512 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    checked={true}
-    className="sc-bwzfXH bzAqRj"
-    data-testid="HabitListItem"
-  >
-    <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      Push Ups
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
-    >
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
       <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 512 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    checked={true}
-    className="sc-bwzfXH bzAqRj"
-    data-testid="HabitListItem"
-  >
-    <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      30 min walk
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
-    >
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        TEST_DATA_1
+      </h4>
       <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
-      >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 512 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    checked={true}
-    className="sc-bwzfXH bzAqRj"
-    data-testid="HabitListItem"
-  >
-    <div
-      className="sc-htpNat eaIapZ toHabitStats"
-      onClick={[Function]}
-    />
-    <div
-      className="sc-bxivhb eDfDnb habitListItemAction"
-      onClick={[Function]}
-    />
-    <h4
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      Keto Diet
-    </h4>
-    <div
-      className="sc-ifAKCX kZzmqm habitListItemStatus"
-    >
-      <div
-        className="sc-bZQynM YtxGS"
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
       >
         <div
-          className="sc-gzVnrw hRMOLE"
+          className="sc-bwzfXH ctYrEP"
         >
-          <p
-            className="number"
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              24
+            </p>
+            <span
+              aria-hidden="false"
+              aria-label="fire"
+              className="emoji"
+              role="img"
+              style={
+                Object {
+                  "fontSize": 19,
+                }
+              }
+            >
+              🔥
+            </span>
+          </div>
+        </div>
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="checkbox"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
             style={
               Object {
-                "fontSize": 18,
+                "border": "1px solid #2D3142",
+                "borderRadius": "4px",
+                "color": "white",
               }
             }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            3
-          </p>
-          <span
-            aria-hidden="false"
-            aria-label="fire"
-            className="emoji"
-            role="img"
-            style={
-              Object {
-                "fontSize": 19,
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={false}
+      className="sc-VigVT cGXRxX show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={false}
+        className="sc-jTzLTM jZQuAq"
+      >
+        <div
+          className="sc-bwzfXH eJyNuA"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              40
+            </p>
+            <span
+              aria-hidden="false"
+              aria-label="fire"
+              className="emoji"
+              role="img"
+              style={
+                Object {
+                  "fontSize": 19,
+                }
               }
-            }
-          >
-            🔥
-          </span>
+            >
+              🔥
+            </span>
+          </div>
         </div>
       </div>
       <div
-        className="sc-EHOje bizewf habitListItemCheckbox"
+        checked={false}
+        className="sc-fjdhpX kFIYBd"
       >
-        <svg
-          fill="currentColor"
-          height={23}
-          size={23}
-          stroke="currentColor"
-          strokeWidth="0"
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
           style={
             Object {
-              "color": undefined,
+              "margin": 0,
             }
           }
-          viewBox="0 0 512 512"
-          width={23}
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-          />
-        </svg>
+          Quit Smoking
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="checkbox"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "border": "1px solid #2D3142",
+                  "borderRadius": "4px",
+                  "color": "white",
+                }
+              }
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={false}
+      className="sc-chPdSV mkaiS show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        Quit Smoking
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-bwzfXH ctYrEP"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              40
+            </p>
+            <span
+              aria-hidden="false"
+              aria-label="fire"
+              className="emoji"
+              role="img"
+              style={
+                Object {
+                  "fontSize": 19,
+                }
+              }
+            >
+              🔥
+            </span>
+          </div>
+        </div>
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="checkbox"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "border": "1px solid #2D3142",
+                "borderRadius": "4px",
+                "color": "white",
+              }
+            }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={false}
+      className="sc-VigVT wchoo show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={false}
+        className="sc-jTzLTM dQfhjj"
+      >
+        <div
+          className="sc-bwzfXH dFJJrW"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              -3
+            </p>
+            <div
+              className="sc-bxivhb dNeoOh"
+            >
+              <svg
+                fill="none"
+                height={21}
+                size={21}
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={21}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="23 18 13.5 8.5 8.5 13.5 1 6"
+                />
+                <polyline
+                  points="17 18 23 18 23 12"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        checked={false}
+        className="sc-fjdhpX YCNru"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Meditate
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="checkbox"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "border": "1px solid #2D3142",
+                  "borderRadius": "4px",
+                  "color": "white",
+                }
+              }
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={false}
+      className="sc-chPdSV jaUFfP show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        Meditate
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-bwzfXH kYudok"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              -3
+            </p>
+            <div
+              className="sc-bxivhb dNeoOh"
+            >
+              <svg
+                fill="none"
+                height={21}
+                size={21}
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={21}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="23 18 13.5 8.5 8.5 13.5 1 6"
+                />
+                <polyline
+                  points="17 18 23 18 23 12"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="checkbox"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "border": "1px solid #2D3142",
+                "borderRadius": "4px",
+                "color": "white",
+              }
+            }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={false}
+      className="sc-VigVT wchoo show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={false}
+        className="sc-jTzLTM dQfhjj"
+      >
+        <div
+          className="sc-bwzfXH dFJJrW"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              -1
+            </p>
+            <div
+              className="sc-bxivhb dNeoOh"
+            >
+              <svg
+                fill="none"
+                height={21}
+                size={21}
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={21}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="23 18 13.5 8.5 8.5 13.5 1 6"
+                />
+                <polyline
+                  points="17 18 23 18 23 12"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        checked={false}
+        className="sc-fjdhpX YCNru"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Sleep on time
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="checkbox"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "border": "1px solid #2D3142",
+                  "borderRadius": "4px",
+                  "color": "white",
+                }
+              }
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={false}
+      className="sc-chPdSV jaUFfP show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        Sleep on time
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-bwzfXH kYudok"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              -1
+            </p>
+            <div
+              className="sc-bxivhb dNeoOh"
+            >
+              <svg
+                fill="none"
+                height={21}
+                size={21}
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={21}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="23 18 13.5 8.5 8.5 13.5 1 6"
+                />
+                <polyline
+                  points="17 18 23 18 23 12"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="checkbox"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "border": "1px solid #2D3142",
+                "borderRadius": "4px",
+                "color": "white",
+              }
+            }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={true}
+      className="sc-VigVT PAvkR show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={true}
+        className="sc-jTzLTM jzpzUK"
+      >
+        <h4>
+          Completed
+        </h4>
+      </div>
+      <div
+        checked={true}
+        className="sc-fjdhpX kMTlEU"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          90 min Yoga
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="check"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={true}
+      className="sc-chPdSV cCOTqZ show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        90 min Yoga
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="check"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clipRule="evenodd"
+              d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={true}
+      className="sc-VigVT PAvkR show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={true}
+        className="sc-jTzLTM jzpzUK"
+      >
+        <h4>
+          Completed
+        </h4>
+      </div>
+      <div
+        checked={true}
+        className="sc-fjdhpX kMTlEU"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Push Ups
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="check"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={true}
+      className="sc-chPdSV cCOTqZ show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        Push Ups
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="check"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clipRule="evenodd"
+              d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={true}
+      className="sc-VigVT PAvkR show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={true}
+        className="sc-jTzLTM jzpzUK"
+      >
+        <h4>
+          Completed
+        </h4>
+      </div>
+      <div
+        checked={true}
+        className="sc-fjdhpX kMTlEU"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          30 min walk
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="check"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={true}
+      className="sc-chPdSV cCOTqZ show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        30 min walk
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="check"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clipRule="evenodd"
+              d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU bSRDtT"
+  >
+    <div
+      checked={true}
+      className="sc-VigVT PAvkR show"
+      data-testid="HabitListItem"
+    >
+      <div
+        checked={true}
+        className="sc-jTzLTM jzpzUK"
+      >
+        <h4>
+          Completed
+        </h4>
+        <div
+          className="sc-bwzfXH eJyNuA"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              3
+            </p>
+            <span
+              aria-hidden="false"
+              aria-label="fire"
+              className="emoji"
+              role="img"
+              style={
+                Object {
+                  "fontSize": 19,
+                }
+              }
+            >
+              🔥
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        checked={true}
+        className="sc-fjdhpX kMTlEU"
+      >
+        <div
+          className="sc-kAzzGY jnANEx"
+          onClick={[Function]}
+        />
+        <h4
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Keto Diet
+        </h4>
+        <div
+          className="sc-jzJRlG hNfPON habitListItemStatus"
+          onClick={[Function]}
+        >
+          <div
+            className="sc-cSHVUG byPeWs habitListItemCheckbox"
+          >
+            <svg
+              className="check"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gqjmRU cyqUVX"
+  >
+    <div
+      checked={true}
+      className="sc-chPdSV cCOTqZ show"
+      data-testid="HabitListItemMobile"
+    >
+      <div
+        className="sc-kpOJdX MZNgr toHabitStats"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-dxgOiQ jRsGKO habitListItemAction"
+        onClick={[Function]}
+      />
+      <h4>
+        Keto Diet
+      </h4>
+      <div
+        className="sc-kgoBCf dpQwIM habitListItemStatus"
+      >
+        <div
+          className="sc-bwzfXH ctYrEP"
+        >
+          <div
+            className="sc-htpNat hFNCHh"
+          >
+            <p
+              className="number"
+            >
+              3
+            </p>
+            <span
+              aria-hidden="false"
+              aria-label="fire"
+              className="emoji"
+              role="img"
+              style={
+                Object {
+                  "fontSize": 19,
+                }
+              }
+            >
+              🔥
+            </span>
+          </div>
+        </div>
+        <div
+          className="sc-kGXeez bLGHJL habitListItemCheckbox"
+        >
+          <svg
+            className="check"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clipRule="evenodd"
+              d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -715,55 +1466,87 @@ exports[`HabitList Component Snapshot renders with data 1`] = `
 
 exports[`HabitList Component Snapshot renders with empty data 1`] = `
 <div
-  className="sc-bdVaJa UoSJW habitList"
+  className="sc-bdVaJa iySDgz habitList"
 >
-  <div
-    className="sc-dnqmqq dpSPbp addHabitButton"
-    onClick={[Function]}
-  >
-    <form
-      className="sc-gZMcBi jycsnz"
-    >
-      <input
-        className="sc-gqjmRU bqvVwe habitTitleInput"
-        onChange={[Function]}
-        placeholder="Habit Title"
-        type="text"
-        value=""
-      />
-      <button
-        className="sc-VigVT bWbPmZ"
-        onClick={[Function]}
-      >
-        Start New Habit
-      </button>
-    </form>
+  <div>
     <div
-      className="sc-iwsKbI fzjTmq"
-      data-testid="AddHabitButtonClose"
+      className="sc-EHOje jFcgZ addHabitButton"
       onClick={[Function]}
     >
-      <svg
-        className="icon"
-        fill="currentColor"
-        height={25}
-        size={25}
-        stroke="currentColor"
-        strokeWidth="0"
-        style={
-          Object {
-            "color": undefined,
-          }
-        }
-        viewBox="0 0 448 512"
-        width={25}
-        xmlns="http://www.w3.org/2000/svg"
+      <form
+        className="sc-gzVnrw SQHRd form"
       >
-        <path
-          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-        />
-      </svg>
+        <h4
+          className="sc-gZMcBi cXBBzz"
+        >
+          New Habit
+        </h4>
+        <div
+          className="sc-htoDjs gndrmL"
+        >
+          <input
+            className="sc-dnqmqq kMUdtT habitTitleInput"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <button
+            className="sc-iwsKbI cpMpqE"
+            onClick={[Function]}
+          >
+            <svg
+              className="buttonIcon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+      <div
+        className="sc-bZQynM ilJXDS iconContainerOpen"
+        data-testid="AddHabitButtonClose"
+      >
+        <svg
+          className="icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 448 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+          />
+        </svg>
+      </div>
     </div>
+    <div
+      className="sc-ifAKCX hnDoim"
+      onClick={[Function]}
+    />
   </div>
 </div>
 `;
