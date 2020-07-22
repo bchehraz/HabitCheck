@@ -19,8 +19,6 @@ import _ from "lodash"
 const getCalendarData = (progressArray, checked) => {
   let progress = _.cloneDeep(progressArray)
 
-  // console.log("<TEST> PROGRESS: ", progressArray)
-
   let todaysDate = new Date()
   //const todaysDate = new Date("12/23/2019");
   let date = new Date(todaysDate)
@@ -89,7 +87,6 @@ const getCalendarData = (progressArray, checked) => {
     }
   }
 
-  // console.log("<TEST> CALENDAR DATA: ", data)
   return data
 }
 

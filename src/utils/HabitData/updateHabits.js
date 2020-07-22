@@ -9,14 +9,9 @@ const getDateDiffInDays = (a, b) => {
 
 const updateHabits = habits => {
   const today = new Date()
-  console.log("[Habits Update In Progress]")
 
   const date = new Date(habits.lastUpdate)
   if (today.setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0)) {
-    console.log(
-      "[Update Not Needed] Last Update Stored (formatted to date): ",
-      new Date(habits.lastUpdate)
-    )
     return habits
   }
 
