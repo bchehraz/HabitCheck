@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 1rem;
-  margin: 10px 0;
+  margin: 15px 0 0;
   user-select: none;
 
   h3 {

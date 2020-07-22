@@ -13,18 +13,27 @@ import { getCalendarData } from "../../utils/HabitStats/Calendar"
 import { getXEffectData } from "../../utils/HabitStats/XEffectData"
 
 const Container = styled.div`
-  max-width: 400px;
   width: 100%;
+  text-align: center;
   margin: 0 auto;
+  background-color: white;
 `
 
 const StatusContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   z-index: 300;
+  padding: 25px;
+
+  h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: left;
+    user-select: none;
+  }
 `
 
 const HabitStats = ({ title }) => {
@@ -34,7 +43,7 @@ const HabitStats = ({ title }) => {
 
   const { checked, unchecked } = context.data.habits
   const viewPref = context.preferences.xEffectView
-  const [view, setView] = useState(context.preferences.xEffectView || false)
+  const [view, setView] = useState(viewPref || false)
   const [calendarData, setCalendarData] = useState([])
   const [xEffectData, setXEffectData] = useState([])
   const [streak, setStreak] = useState(0)
@@ -71,12 +80,10 @@ const HabitStats = ({ title }) => {
   }, [viewPref, habitMap, bestStreak, streak])
 
   const onCheckHandler = () => {
-    const { index } = habitMap[title]
     context.checkHabit(title)
   }
 
   const onUncheckHandler = () => {
-    const { index } = habitMap[title]
     context.uncheckHabit(title)
   }
 
@@ -95,7 +102,7 @@ const HabitStats = ({ title }) => {
   return (
     <Container>
       <StatusContainer>
-        <h3 style={{ zIndex: 6666 }}>{title}</h3>
+        <h3>{title}</h3>
         {/* {!editMode && habitTitle} */}
         {/* {editMode && (
               <input

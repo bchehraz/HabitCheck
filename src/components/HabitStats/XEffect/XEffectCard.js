@@ -6,28 +6,29 @@ import { FaCaretLeft, FaCaretRight } from "react-icons/fa"
 import { XEffectItem } from "./"
 
 const Container = styled.div`
-  margin: 15px auto;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   .btnPageLeft,
   .btnPageRight {
     opacity: 1;
+    cursor: pointer;
+    display: flex;
   }
 
   .btnDisabled {
-    opacity: 0;
+    opacity: 1;
+    color: #ddd;
   }
 `
 
 const RowContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
 `
 
 const renderItems = (
@@ -40,7 +41,7 @@ const renderItems = (
   let rowNum = 0
   let rowData = [[]]
   rowData[0] = []
-  console.log(data)
+
   for (let i = 0; i < data.length; i++) {
     if (data[i] === 0) {
       //If you have reached status 0, check the item before for a status 2 to see if it's uncheckable
@@ -78,7 +79,7 @@ const renderItems = (
       <RowContainer key={i} className="xEffectRow">
         {row.map((status, j) => {
           let onClick = () => {}
-          console.log(status)
+
           if (status === 3) {
             onClick = onCheckHandler
           } else if (status === 4) {

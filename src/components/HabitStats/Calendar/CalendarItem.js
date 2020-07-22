@@ -5,8 +5,8 @@ import styled from "styled-components"
 const Container = styled.div`
   .calendarItem {
     border-radius: 7px;
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,6 +17,13 @@ const Container = styled.div`
       font-weight: 300 !important;
     }
     margin: 2px 5px;
+  }
+
+  @media only screen and (min-width: 400px) {
+    .calendarItem {
+      width: 45px;
+      height: 45px;
+    }
   }
 
   .status__1,
@@ -36,11 +43,20 @@ const Container = styled.div`
   .status__3 {
     border: 3px solid #66c7f4;
   }
+
+  .active {
+    cursor: pointer;
+  }
 `
 
 const CalendarItem = ({ children, status, isLabel, onClick }) => (
   <Container label={isLabel && 1} onClick={onClick}>
-    <div className={`calendarItem status__${status}`}>{children}</div>
+    <div
+      className={`calendarItem status__${status} ${onClick !== undefined &&
+        "active"}`}
+    >
+      {children}
+    </div>
   </Container>
 )
 

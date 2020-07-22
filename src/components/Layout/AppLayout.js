@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { ThemeProvider } from "styled-components"
 
 import { AppHeader, FooterNav } from "./"
 import "../landing/layout.css"
@@ -16,20 +17,23 @@ const AppLayout = ({ children, path }) => {
   }
   return (
     <>
-      <AppHeader title={page} />
-      <div
-        style={{
-          margin: `0 auto 5rem`,
-          padding: 0,
-          maxWidth: "100%",
-          display: "flex",
-          flexFlow: "column nowrap",
-          alignItems: "center",
-        }}
-      >
-        <main>{children}</main>
-      </div>
-      <FooterNav currentPage={page} />
+      <ThemeProvider theme={{ mode: "light" }}>
+        <AppHeader title={page} />
+        <div
+          style={{
+            margin: `0 auto 5rem`,
+            padding: 0,
+            maxWidth: "100%",
+            display: "flex",
+            flexFlow: "column nowrap",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <main>{children}</main>
+        </div>
+        <FooterNav currentPage={page} />
+      </ThemeProvider>
     </>
   )
 }

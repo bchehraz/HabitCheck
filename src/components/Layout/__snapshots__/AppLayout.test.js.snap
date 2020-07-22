@@ -4,7 +4,7 @@ exports[`Header renders correctly with /app/ path 1`] = `
 Array [
   <header>
     <div
-      className="sc-bdVaJa bzVTIk"
+      className="sc-bdVaJa hgqvdk"
     >
       <h1>
         Today
@@ -23,6 +23,7 @@ Array [
         "margin": "0 auto 5rem",
         "maxWidth": "100%",
         "padding": 0,
+        "position": "relative",
       }
     }
   >
@@ -145,7 +146,7 @@ exports[`Header renders correctly with /app/journal 1`] = `
 Array [
   <header>
     <div
-      className="sc-bdVaJa bzVTIk"
+      className="sc-bdVaJa hgqvdk"
     >
       <h1>
         Your Journal
@@ -164,6 +165,7 @@ Array [
         "margin": "0 auto 5rem",
         "maxWidth": "100%",
         "padding": 0,
+        "position": "relative",
       }
     }
   >
@@ -286,7 +288,7 @@ exports[`Header renders correctly with /app/stats 1`] = `
 Array [
   <header>
     <div
-      className="sc-bdVaJa bzVTIk"
+      className="sc-bdVaJa hgqvdk"
     >
       <h1>
         Your Journal
@@ -305,6 +307,7 @@ Array [
         "margin": "0 auto 5rem",
         "maxWidth": "100%",
         "padding": 0,
+        "position": "relative",
       }
     }
   >

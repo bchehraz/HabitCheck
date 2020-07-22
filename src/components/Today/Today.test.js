@@ -38,6 +38,7 @@ test("Today: Render with empty habit data, fresh context", () => {
     </AuthProvider>
   )
   expect(queryAllByTestId("HabitListItem")).toHaveLength(0)
+  expect(queryAllByTestId("HabitListItemMobile")).toHaveLength(0)
 })
 
 test("Today: Render with some habit data inside context", () => {
@@ -58,4 +59,5 @@ test("Today: Render with some habit data inside context", () => {
     </AuthProvider>
   )
   expect(queryAllByTestId("HabitListItem")).toHaveLength(9)
+  expect(queryAllByTestId("HabitListItemMobile")).toHaveLength(9)
 })

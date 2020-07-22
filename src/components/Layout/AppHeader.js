@@ -5,8 +5,18 @@ import styled from "styled-components"
 
 const Container = styled.div`
   margin: 0 auto;
-  padding: 1.45rem 1.0875rem;
+  padding: 2rem;
   background: white;
+
+  @media only screen and (min-width: 768px) {
+    p {
+      font-size: 1.2em;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+  }
 `
 
 const getDate = () => {

@@ -35,15 +35,16 @@ const CalendarHeader = styled.div`
   .btnPageLeft,
   .btnPageRight {
     opacity: 1;
+    cursor: pointer;
   }
 
   .btnDisabled {
-    opacity: 0;
+    opacity: 1;
+    color: #ddd;
   }
 `
 
 const Container = styled.div`
-  padding: 25px 0;
   display: flex;
   flex-flow: column nowrap;
   user-select: none;

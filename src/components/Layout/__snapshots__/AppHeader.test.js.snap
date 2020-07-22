@@ -3,7 +3,7 @@
 exports[`Header renders correctly 1`] = `
 <header>
   <div
-    className="sc-bdVaJa bzVTIk"
+    className="sc-bdVaJa hgqvdk"
   >
     <h1>
       HabitCheck

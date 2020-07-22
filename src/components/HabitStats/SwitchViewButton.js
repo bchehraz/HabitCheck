@@ -15,6 +15,7 @@ const Container = styled.div`
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
     background-color: rgba(102, 199, 244, 0.5);
     background-color: white;
+    cursor: pointer;
   }
 
   .switch.on {

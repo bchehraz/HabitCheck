@@ -10,9 +10,9 @@ const Container = styled.div`
     align-items: center;
     background-color: #eeeeee;
     border: 1px solid #eeeeee;
-    margin: 0 5px;
-    width: 45px;
-    height: 45px;
+    margin: 7px;
+    width: 50px;
+    height: 50px;
     border-radius: 7px;
   }
 
@@ -38,13 +38,18 @@ const Container = styled.div`
     border-color: #66c7f4;
     border-width: 3px;
   }
+
+  .status__4,
+  .status__3 {
+    cursor: pointer;
+  }
 `
 
 const XEffectItem = ({ status, onClick }) => (
   <Container onClick={onClick}>
     <div className={`xEffectItem status__${status}`}>
-      {(status === 2 || status === 4) && <FaTimes size={40} />}
-      {status === 1 && <FaRegCircle size={33} />}
+      {(status === 2 || status === 4) && <FaTimes size={50} />}
+      {status === 1 && <FaRegCircle size={40} />}
     </div>
   </Container>
 )
