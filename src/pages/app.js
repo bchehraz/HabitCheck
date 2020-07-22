@@ -137,7 +137,6 @@ const AppHome = () => {
         },
         changeHabitTitle: (title, newTitle) => {
           const update = newHabitTitle(title, newTitle)
-          console.log("Update after context", update.lastUpdate)
           setLoginData({
             ...loginData,
             data: {
