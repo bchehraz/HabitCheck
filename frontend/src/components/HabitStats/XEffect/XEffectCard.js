@@ -108,25 +108,28 @@ const XEffectCard = ({
   const hasNextPage = page !== 0
 
   return (
-    <Container className=".xEffectContainer">
-      <div
-        className={(hasPrevPage && "btnPageLeft") || "btnDisabled"}
-        onClick={() => {
-          return hasPrevPage && onPrevPage()
-        }}
-      >
-        <FaCaretLeft size={32} />
-      </div>
-      <div>{renderItems(data, size, onCheck, onUncheck, hasNextPage)}</div>
-      <div
-        className={(hasNextPage && "btnPageRight") || "btnDisabled"}
-        onClick={() => {
-          return hasNextPage && onNextPage()
-        }}
-      >
-        <FaCaretRight size={32} />
-      </div>
-    </Container>
+    <div>
+      <Container className=".xEffectContainer">
+        <div
+          className={(hasPrevPage && "btnPageLeft") || "btnDisabled"}
+          onClick={() => {
+            return hasPrevPage && onPrevPage()
+          }}
+        >
+          <FaCaretLeft size={32} />
+        </div>
+        <div>{renderItems(data, size, onCheck, onUncheck, hasNextPage)}</div>
+        <div
+          className={(hasNextPage && "btnPageRight") || "btnDisabled"}
+          onClick={() => {
+            return hasNextPage && onNextPage()
+          }}
+        >
+          <FaCaretRight size={32} />
+        </div>
+      </Container>
+      <p className="number">{`${pageMax - page + 1} / ${pageMax + 1}`}</p>
+    </div>
   )
 }
 
