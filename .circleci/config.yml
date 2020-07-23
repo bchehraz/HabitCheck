@@ -30,7 +30,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      - run:
+          command: npm install
           working_directory: ./frontend
 
       - save_cache:
