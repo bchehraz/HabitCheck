@@ -31,7 +31,7 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
-        - working_directory: ./frontend
+          working_directory: ./frontend
 
       - save_cache:
           paths:
