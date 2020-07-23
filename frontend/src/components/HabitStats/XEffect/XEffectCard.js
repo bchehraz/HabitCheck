@@ -128,7 +128,7 @@ const XEffectCard = ({
           <FaCaretRight size={32} />
         </div>
       </Container>
-      <p className="number">{`${pageMax - page + 1} / ${pageMax + 1}`}</p>
+      <p className="number" style={{ userSelect: 'none' }}>{`${pageMax - page + 1} / ${pageMax + 1}`}</p>
     </div>
   )
 }
