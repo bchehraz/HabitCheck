@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Today.js Snapshot Test Today: Snapshot test 1`] = `
+<div>
+  <div
+    className="sc-bdVaJa iySDgz habitList"
+  >
+    <div>
+      <div
+        className="sc-EHOje jFcgZ addHabitButton"
+        onClick={[Function]}
+      >
+        <form
+          className="sc-gzVnrw SQHRd form"
+        >
+          <h4
+            className="sc-gZMcBi cXBBzz"
+          >
+            New Habit
+          </h4>
+          <div
+            className="sc-htoDjs gndrmL"
+          >
+            <input
+              className="sc-dnqmqq fjzeNm habitTitleInput"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <button
+              className="sc-iwsKbI cpMpqE"
+              onClick={[Function]}
+            >
+              <svg
+                className="buttonIcon"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+        <div
+          className="sc-bZQynM ilJXDS iconContainerOpen"
+          data-testid="AddHabitButtonClose"
+        >
+          <svg
+            className="icon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="sc-ifAKCX hnDoim"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="sc-jDwBTQ fqhQmL"
+  />
+  <div
+    className="sc-ifAKCX knQlCq"
+    onClick={[Function]}
+  />
+</div>
+`;

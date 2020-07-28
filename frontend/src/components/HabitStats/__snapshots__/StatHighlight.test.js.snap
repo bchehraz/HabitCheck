@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatHighlight component snapshot test with props 1`] = `
+<div
+  className="sc-bdVaJa jVpTPj"
+  color="#333"
+>
+  <h3>
+    Best Streak
+  </h3>
+  <div
+    className="sc-bwzfXH dfNHcW"
+    color="ddd"
+  >
+    <p
+      className="stat"
+    >
+      30
+    </p>
+  </div>
+</div>
+`;

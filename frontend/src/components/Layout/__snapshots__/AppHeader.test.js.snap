@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header>
+  <div
+    className="sc-bdVaJa edFrLw"
+  >
+    <h1>
+      HabitCheck
+    </h1>
+    <p>
+      Wednesday, December 25 2019
+    </p>
+  </div>
+</header>
+`;

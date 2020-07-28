@@ -1,0 +1,72 @@
+$primary-color: #2d3142;
+$secondary-color: #ffffff;
+$primary-blue: #66c7f4;
+$primary-red: #aa4465;
+$primary-green: #8acb88;
+$primary-font: "Montserrat", sans-serif;
+$secondary-font: "Roboto", sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary-color;
+  font-family: $primary-font;
+}
+
+h1 {
+  font-weight: 900;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 300;
+  margin: 0;
+}
+
+h3.title {
+  font-weight: 600;
+}
+
+.landing {
+  font-family: $secondary-font;
+}
+
+p {
+  font-family: $primary-font;
+  font-weight: bold;
+  margin: 0;
+}
+
+p.number,
+p.stat {
+  font-family: $secondary-font;
+  font-weight: bold;
+}
+
+p.stat {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.footer a,
+.footer a:link,
+.footer a:visited,
+.footer a:active {
+  color: $primary-color;
+}
+
+form,
+input,
+button {
+  font-family: $primary-font;
+  color: $primary-color;
+  border: none;
+  outline: none;
+}
