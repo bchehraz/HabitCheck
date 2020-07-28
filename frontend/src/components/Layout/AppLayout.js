@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
 
 import { AppHeader, FooterNav } from "./"
-import "../landing/layout.css"
+import "../Landing2/layout.css"
 import "./layout.scss"
 
 const AppLayout = ({ children, path }) => {
