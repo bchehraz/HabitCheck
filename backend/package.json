@@ -1,0 +1,33 @@
+{
+  "name": "habitcheck-graphql-server",
+  "version": "1.0.0",
+  "description": "HabitCheck's GraphQL Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bchehraz/habitcheck.git"
+  },
+  "author": "Babak Chehraz (gh @bchehraz)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bchehraz/habitcheck/issues"
+  },
+  "homepage": "https://github.com/bchehraz/habitcheck#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
