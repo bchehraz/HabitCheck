@@ -34,7 +34,7 @@ The app currently allows user to login or create a user account through the Grap
 
 ## Demo
 
-https://www.habitcheck.netlify.app/ (App Frontend)
+https://habitcheck.netlify.app/ (App Frontend)
 
 https://habit-check.herokuapp.com/graphql (Backend Server Endpoint) 
 
