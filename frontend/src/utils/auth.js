@@ -1,9 +1,11 @@
 import { isBrowser, isResponseOk } from "./helpers"
 
 const getUser = () => {
-  const loginState = JSON.parse(window.localStorage.loginState)
-  if (loginState.userId) {
-    return JSON.parse(window.localStorage.getItem(loginState.userId))
+  if (window.localStorage.loginState) {
+    const loginState = JSON.parse(window.localStorage.loginState)
+    if (loginState.userId) {
+      return JSON.parse(window.localStorage.getItem(loginState.userId))
+    }
   }
   return {}
 }
