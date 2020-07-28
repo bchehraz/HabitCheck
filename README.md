@@ -24,11 +24,13 @@ by Babak Chehraz
 
 ## About HabitCheck
 
-HabitCheck is a simple Habit Tracker that allows a user to add daily habits they would like to incorporate, or habits they would like to kick. The app itself will automatically update habits as days go by, so make sure to check in when you accomplish your daily habit!
+HabitCheck is a simple Habit Tracker that allows a user to add daily habits they would like to incorporate, or habits they would like to kick. The app itself will automatically keep track of your habits, but beware as the app will mark missed days toward a negative streak so be sure to check in! Habits can also be viewed in a Calendar and "X Effect" format by clicking the left-hand side of a habit!). 
 
 This has been an ongoing project of mine since November 2019. The plan was to allow for offline functionality as a PWA with various features to help users manage their habits and tasks (planned future updates are listed below). 
 
 The app currently allows user to login or create a user account through the GraphQL Server on Heroku which stores data on MongoDB Atlas. However, habit data for each user is stored solely on the client and cannot be removed unless you clear your browser's cache. Even then, you are able to log into another account and create new habits for that account, independent from other accounts you create and log into.
+
+
 
 ## Demo
 
