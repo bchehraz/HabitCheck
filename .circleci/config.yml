@@ -40,4 +40,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run ci:test -- -u
+      - run: npm run ci:test
