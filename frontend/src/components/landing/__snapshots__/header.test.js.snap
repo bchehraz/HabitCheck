@@ -4,15 +4,22 @@ exports[`Header renders correctly 1`] = `
 <header
   style={
     Object {
-      "background": "white",
+      "background": "#eee",
+      "margin": "0 auto",
       "marginBottom": "1.45rem",
     }
   }
 >
   <div
-    className="sc-bdVaJa edqgWE"
+    className="sc-bdVaJa fcINJh"
   >
-    <h1>
+    <div
+      className="sc-bwzfXH irtPBW"
+    >
+      <img
+        alt="logo"
+        src="test-file-stub"
+      />
       <a
         href="/"
         style={
@@ -22,16 +29,11 @@ exports[`Header renders correctly 1`] = `
           }
         }
       >
-        Default Starter
+        <h1>
+          Default Starter
+        </h1>
       </a>
-    </h1>
-    <h3>
-      <a
-        href="/app"
-      >
-        Try out the app!
-      </a>
-    </h3>
+    </div>
   </div>
 </header>
 `;

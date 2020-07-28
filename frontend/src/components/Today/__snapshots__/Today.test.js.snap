@@ -1,92 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Today.js Snapshot Test Today: Snapshot test 1`] = `
-Array [
-  <header>
-    <div
-      className="sc-bdVaJa hgqvdk"
-    >
-      <h1>
-        Today
-      </h1>
-      <p>
-        Saturday, July 4 2020
-      </p>
-    </div>
-  </header>,
+<div>
   <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "flexFlow": "column nowrap",
-        "margin": "0 auto 5rem",
-        "maxWidth": "100%",
-        "padding": 0,
-        "position": "relative",
-      }
-    }
+    className="sc-bdVaJa iySDgz habitList"
   >
-    <main>
+    <div>
       <div
-        className="sc-EHOje jIKgRi habitList"
+        className="sc-EHOje jFcgZ addHabitButton"
+        onClick={[Function]}
       >
-        <div>
-          <div
-            className="sc-iwsKbI jbDXSk addHabitButton"
-            onClick={[Function]}
+        <form
+          className="sc-gzVnrw SQHRd form"
+        >
+          <h4
+            className="sc-gZMcBi cXBBzz"
           >
-            <form
-              className="sc-gqjmRU gUSZrW form"
-            >
-              <h4
-                className="sc-jzJRlG bNsmGJ"
-              >
-                New Habit
-              </h4>
-              <div
-                className="sc-VigVT ceejnY"
-              >
-                <input
-                  className="sc-jTzLTM fTfcBt habitTitleInput"
-                  onChange={[Function]}
-                  type="text"
-                  value=""
-                />
-                <button
-                  className="sc-fjdhpX hBpzPe"
-                  onClick={[Function]}
-                >
-                  <svg
-                    className="buttonIcon"
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    strokeWidth="0"
-                    style={
-                      Object {
-                        "color": undefined,
-                      }
-                    }
-                    viewBox="0 0 16 16"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </form>
-            <div
-              className="sc-gZMcBi glpbXt iconContainerOpen"
-              data-testid="AddHabitButtonClose"
+            New Habit
+          </h4>
+          <div
+            className="sc-htoDjs gndrmL"
+          >
+            <input
+              className="sc-dnqmqq fjzeNm habitTitleInput"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <button
+              className="sc-iwsKbI cpMpqE"
+              onClick={[Function]}
             >
               <svg
-                className="icon"
+                className="buttonIcon"
                 fill="currentColor"
                 height="1em"
                 stroke="currentColor"
@@ -96,84 +42,27 @@ Array [
                     "color": undefined,
                   }
                 }
-                viewBox="0 0 448 512"
+                viewBox="0 0 16 16"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                  clipRule="evenodd"
+                  d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                  fillRule="evenodd"
                 />
               </svg>
-            </div>
+            </button>
           </div>
-          <div
-            className="sc-dnqmqq hhhkoQ"
-            onClick={[Function]}
-          />
-        </div>
-      </div>
-      <div
-        className="sc-csuQGl eGzWpx"
-      />
-      <div
-        className="sc-dnqmqq loabua"
-        onClick={[Function]}
-      />
-    </main>
-  </div>,
-  <div
-    className="sc-bwzfXH hCiwAb"
-  >
-    <div
-      className="sc-htpNat hMjIwR footer"
-    >
-      <a
-        href="/app/"
-      >
+        </form>
         <div
-          className="sc-bxivhb bEdBIT today"
-        >
-          <div
-            className="sc-ifAKCX biWapd"
-          />
-          <svg
-            className="todayIcon"
-            fill="none"
-            height={40}
-            size={40}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 24 24"
-            width={40}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="9 11 12 14 22 4"
-            />
-            <path
-              d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
-            />
-          </svg>
-        </div>
-      </a>
-      <a
-        href="/app/journal"
-      >
-        <div
-          className="sc-bxivhb dQxvwo yourJournal"
+          className="sc-bZQynM ilJXDS iconContainerOpen"
+          data-testid="AddHabitButtonClose"
         >
           <svg
-            className="journalIcon"
+            className="icon"
             fill="currentColor"
-            height={32}
-            size={32}
+            height="1em"
             stroke="currentColor"
             strokeWidth="0"
             style={
@@ -181,51 +70,28 @@ Array [
                 "color": undefined,
               }
             }
-            viewBox="0 0 576 512"
-            width={32}
+            viewBox="0 0 448 512"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
             />
           </svg>
         </div>
-      </a>
-      <a
-        href="/app/settings"
-      >
-        <div
-          className="sc-bxivhb dQxvwo settings"
-        >
-          <svg
-            fill="none"
-            height={32}
-            size={32}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 24 24"
-            width={32}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-            />
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-            />
-          </svg>
-        </div>
-      </a>
+      </div>
+      <div
+        className="sc-ifAKCX hnDoim"
+        onClick={[Function]}
+      />
     </div>
-  </div>,
-]
+  </div>
+  <div
+    className="sc-jDwBTQ fqhQmL"
+  />
+  <div
+    className="sc-ifAKCX knQlCq"
+    onClick={[Function]}
+  />
+</div>
 `;
