@@ -13,7 +13,7 @@ const Spinner = ({ style }) => (
 )
 
 Spinner.propTypes = {
-  style: PropTypes.obj,
+  style: PropTypes.object,
 }
 
 export default Spinner
