@@ -6,7 +6,6 @@ const AuthContext = React.createContext({
   token: null,
   userId: null,
   email: null,
-  tokenExpiration: null,
   data: {
     habits: {
       lastUpdate: null,
@@ -18,11 +17,10 @@ const AuthContext = React.createContext({
   preferences: {
     darkMode: false,
     xEffectView: false,
-    selected: 0,
   },
-  login: (token, userId, tokenExpiration, email, data, preferences) => {},
+  login: (token, userId, email, data, preferences) => {},
   logout: () => {},
-  newHabit: habit => {},
+  addHabit: habit => {},
   checkHabit: (habitIndex, callback) => {},
   uncheckHabit: (habitIndex, callback) => {},
   toggleDarkMode: () => {},
