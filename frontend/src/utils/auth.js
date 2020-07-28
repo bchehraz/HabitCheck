@@ -1,54 +1,58 @@
-import { isBrowser } from "./helpers"
+import { isBrowser, isResponseOk } from "./helpers"
 import { data as _DATA } from "./static/data"
-import { updateHabits } from "./HabitData"
-
-/****
-  Testing? Set testing to true. If you want to access saved values, set to false!
-  However, if testing is set to false, do NOT log out otherwise you will lose your data.
-****/
-
-const testing = true
 
 const getUser = () => {
-  if (testing) {
-    return window.localStorage.user ? JSON.parse(window.localStorage.user) : {}
-  } else {
-    return window.localStorage.savedUser
-      ? JSON.parse(window.localStorage.savedUser)
-      : {}
+  const loginState = JSON.parse(window.localStorage.loginState)
+  if (loginState.userId) {
+    return JSON.parse(window.localStorage.getItem(loginState.userId))
   }
+  return {}
+  //return window.localStorage.user ? JSON.parse(window.localStorage.user) : {}
 }
 
 const setUser = user => {
   if (!isBrowser) return
-  if (testing) {
-    window.localStorage.user = JSON.stringify(user)
-  } else {
-    window.localStorage.savedUser = JSON.stringify(user)
+  // Temporarily for the purpose of submitting this project on time for Chingu,
+  // instead of fetching habit data based on userId from server upon login,
+  // we will store user data into localStorage based on userId
+  // separated from the token so that logging out doesn't affect the user data
+  if (!user.userId) {
+    window.localStorage.setItem("loginState", JSON.stringify({}))
+    return;
   }
-}
+  window.localStorage.setItem("loginState", JSON.stringify({ userId: user.userId, token: user.token, email: user.email }))
+  window.localStorage.setItem(user.userId, JSON.stringify(user))}
 
 const getUserData = () => {
   return getCurrentUser().data
+}
+
+//for testing, wipe local storage completely for given userId
+const wipeUserData = (userId) => {
+  window.localStorage.setItem(userId, JSON.stringify({}))
+  window.localStorage.setItem("loginState", JSON.stringify({}))
+} 
+
+const getHabitData = (userId) => {
+  const user = JSON.parse(window.localStorage.getItem(userId))
+  if (!user) {
+    return { checked: [], unchecked: [] };
+  }
+  return user.data.habits
 }
 
 export const setUserData = data => {
   setUser({ ...getCurrentUser(), data })
 }
 
-const wipeTestUserOnly = user => {
-  if (!isBrowser) return
-  window.localStorage.user = JSON.stringify(user)
-}
-
 export const isLoggedIn = () => {
   if (!isBrowser) return false
 
   const { token, userId, email, data, preferences } = getUser()
+
   if (!token) {
     return false
   }
-  //data.habits = updateHabits(data.habits)
 
   return {
     token,
@@ -62,7 +66,6 @@ export const isLoggedIn = () => {
 export const onLoginSuccess = (
   token,
   userId,
-  tokenExpiration,
   email,
   data,
   preferences
@@ -70,7 +73,6 @@ export const onLoginSuccess = (
   return setUser({
     token,
     userId,
-    tokenExpiration,
     email,
     data,
     preferences,
@@ -84,43 +86,128 @@ export const getCurrentUserData = () => isBrowser && getUserData()
 export const logout = callback => {
   if (!isBrowser) return
 
-  wipeTestUserOnly({
-    token: null,
-    data: {
-      habits: {
-        checked: [],
-        unchecked: [],
-      },
-    },
-    userId: null,
-    tokenExpiration: null,
-    email: null,
-    preferences: {
-      darkMode: false,
-      xEffectView: false,
-    },
-  })
+  setUser({})
   callback()
 }
 
-export const login = () => {
+const callAuthAPI = async (requestBody) => {
+  return await fetch('http://localhost:3000/graphql', {
+    method: 'POST',
+    body: JSON.stringify(requestBody),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+}
+
+export const login = async (email, password) => {
   if (!isBrowser) return false
 
-  const habits = updateHabits(_DATA.habits)
+  const requestBody = {
+    query: `
+      query Login($email: String!, $password: String!) {
+        login(
+          email: $email,
+          password: $password
+        ) {
+          userId
+          token
+        }
+      }
+    `,
+    variables: {
+      email, password
+    }
+  }
 
-  return {
-    token: "12345",
-    userId: "12345",
-    tokenExpiration: "1h",
-    email: "email@test.com",
-    data: {
-      ..._DATA,
-      habits,
-    },
-    preferences: {
-      darkMode: false,
-      xEffectView: false,
-    },
+  try {
+    const response = await callAuthAPI(requestBody)
+
+    if (!isResponseOk(response)) {
+      throw new Error("Login failed!")
+    }
+
+    const { data } = await response.json()
+
+    if (!data.login) {
+      return false
+    }
+
+    /* Wipe given user's data for testing */
+    // wipeUserData(data.login.userId)
+    // return;
+
+    /* temporary fix to fetch data from client until backend is fully completed */
+    const habits = getHabitData(data.login.userId)
+
+    data.login = {
+      ...data.login,
+      email,
+      data: {
+        habits
+      },
+      preferences: {
+        darkMode: false,
+        xEffectView: false
+      },
+    }
+
+    return data.login
+  } catch (err) {
+    console.log(err)
+    return false;
+  }
+}
+
+export const createUser = async (email, password) => {
+  const requestBody = {
+    query: `
+      mutation CreateAccount($email: String!, $password: String!) {
+        createUser(userInput: {
+          email: $email,
+          password: $password
+        }) {
+          userId
+          token
+        }
+      }
+    `,
+    variables: {
+      email, password
+    }
+  };
+
+  try {
+    const response = await callAuthAPI(requestBody);
+
+    if (!isResponseOk(response)) {
+      throw new Error("Sign up failed!");
+    }
+
+    const { data } = await response.json();
+
+    if (!data.createUser) {
+      return false;
+    }
+
+    data.createUser = {
+      ...data.createUser,
+      data: {
+        habits: {
+          checked: [],
+          unchecked: [],
+        },
+      },
+      preferences: {
+        darkMode: false,
+        xEffectView: false,
+      }
+    }
+
+    return data.createUser;
+  } catch (e) {
+    console.log(e);
+    return false;
   }
 }
 
