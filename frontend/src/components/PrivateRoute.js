@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { navigate } from "@reach/router"
 import PropTypes from "prop-types"
 import AuthContext from "../context/auth-context"

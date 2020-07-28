@@ -1,5 +1,4 @@
 import { isBrowser, isResponseOk } from "./helpers"
-import { data as _DATA } from "./static/data"
 
 const getUser = () => {
   const loginState = JSON.parse(window.localStorage.loginState)
@@ -7,7 +6,6 @@ const getUser = () => {
     return JSON.parse(window.localStorage.getItem(loginState.userId))
   }
   return {}
-  //return window.localStorage.user ? JSON.parse(window.localStorage.user) : {}
 }
 
 const setUser = user => {
@@ -21,13 +19,15 @@ const setUser = user => {
     return;
   }
   window.localStorage.setItem("loginState", JSON.stringify({ userId: user.userId, token: user.token, email: user.email }))
-  window.localStorage.setItem(user.userId, JSON.stringify(user))}
+  window.localStorage.setItem(user.userId, JSON.stringify(user))
+}
 
-const getUserData = () => {
+export const getUserData = () => {
   return getCurrentUser().data
 }
 
 //for testing, wipe local storage completely for given userId
+// eslint-disable-next-line
 const wipeUserData = (userId) => {
   window.localStorage.setItem(userId, JSON.stringify({}))
   window.localStorage.setItem("loginState", JSON.stringify({}))

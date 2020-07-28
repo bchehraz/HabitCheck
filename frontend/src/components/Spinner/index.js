@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./spinnerStyle.css"
 
 const Spinner = ({ style }) => (
@@ -10,5 +11,9 @@ const Spinner = ({ style }) => (
     </div>
   </div>
 )
+
+Spinner.propTypes = {
+  style: PropTypes.obj,
+}
 
 export default Spinner

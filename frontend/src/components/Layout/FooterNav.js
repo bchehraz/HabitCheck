@@ -84,7 +84,6 @@ const TabSelection = styled.div`
 `
 
 const getTabIcon = isActive => {
-  const size = isActive ? 40 : 32
   return {
     Settings: <FiSettings className={`icon ${isActive && "active"}`} />,
     Today: <FiCheckSquare className={`icon ${isActive && "active"}`} />,
