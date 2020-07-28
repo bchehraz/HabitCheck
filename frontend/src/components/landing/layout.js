@@ -9,7 +9,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Header from "./Header"
+import Footer from "./Footer"
 import "./layout.css"
 import "../Layout/layout.scss"
 
@@ -31,10 +32,13 @@ const Layout = ({ children }) => {
         style={{
           margin: `0 auto`,
           padding: 0,
-          maxWidth: "100%",
+          maxWidth: "1024px",
         }}
       >
-        <main>{children}</main>
+        <main style={{ minHeight: '85vh' }}>
+          {children}
+        </main>
+        <Footer />
       </div>
     </>
   )

@@ -3,21 +3,37 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from 'styled-components';
 
+import Logo from "../../images/logo.svg"
+
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 960px;
   padding: 1.45rem 1.0875rem;
+  user-select: none;
 `;
+
+const LogoContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+
+  img {
+    margin: 0;
+  }
+`
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `white`,
+      background: `#eee`,
+      margin: '0 auto',
       marginBottom: `1.45rem`,
     }}
   >
     <Container>
-      <h1>
+      <LogoContainer>
+        <img src={Logo} alt="logo" />
         <Link
           to="/"
           style={{
@@ -25,16 +41,9 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <h1>{siteTitle}</h1>
         </Link>
-      </h1>
-      <h3>
-        <Link
-          to="/app"
-        >
-          Try out the app!
-        </Link>
-      </h3>
+      </LogoContainer>
     </Container>
   </header>
 )
