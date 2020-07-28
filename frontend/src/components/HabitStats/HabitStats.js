@@ -109,7 +109,7 @@ const HabitStats = ({ title }) => {
     <Container>
       <StatusContainer>
         <h3>{title}</h3>
-        {/* {!editMode && habitTitle} */}
+        {/* {!editMode && title} */}
         {/* {editMode && (
               <input
                 type="text"
@@ -131,7 +131,6 @@ const HabitStats = ({ title }) => {
           handleRemove={() => {
             // eslint-disable-next-line no-undef
             const res = confirm("Are you sure you want to remove this habit?")
-            console.log("Confirm Response", res)
           }}
         /> */}
       {view ? (

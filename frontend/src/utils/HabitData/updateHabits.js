@@ -55,8 +55,7 @@ const updateHabits = habits => {
   /*
     Update Checked Habits Array
 
-    Description: There is no case where a checked habit would be found to stay checked
-    However
+    Description: There is no case where a checked habit would stay checked after update
   */
 
   habits.checked.map(habit => {
@@ -83,6 +82,8 @@ const updateHabits = habits => {
   habits.map = getNewHabitMap(habits)
 
   setHabits(habits)
+
+  //TODO: After update is complete, save data to backend
 
   return habits
 }
