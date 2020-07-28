@@ -64,6 +64,28 @@ Much of the UI was designed using Figma (I highly recommend this)
 
 ## Dependencies Used
 
+There are many dependencies I decided to use for this project and it would be awesome for me to sit down and write about all of them, but instead I will talk about some of the more notable ones.
+
+#### Gatsby (learn more at https://GatsbyJS.org)
+
+As they say on their page, "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps"
+
+Gatsby is a static site generator, making it really easy to deploy to sites like Netlify. Gatsby also makes it really easy to set up offline functionality to create a Progressive Web App. A lot of its functionality come right out of the box and it's just nice to use, easy to get the hang of. I highly recommend it, even for production apps.
+
+#### Styled Components
+
+Styled components allows for "css-in-js" which eliminates the need to have seperate .css files for each component, allowing for your css code to be inserted directly into the component JS file. 
+
+One big advantage is that any props passed to these styled components can be used to manipulate the css, rather than having css class names that change based on state.
+
+#### Husky
+
+Husky is a cool dependency based around the usage of git and commits. Husky allows for pre-commit hooks that can take a look at the code right before commiting. On this project, I am using Husky to run `jest` as well as `prettier` to run local tests and to clean up my code and format it. Whenever something is wrong, husky will stop me from committing, allowing me to fix an issue before I commit!
+
+#### Cypress
+
+Cypress is an awesome and powerful UI testing tool that allows me to test my app on a live chrome-based browser. It allows for running your app on multiple viewports as well to test for responsiveness. I have yet to learn all the potential from this great tool and I hope to put it to better use in the future. 
+
 ## How to Deploy
 
 Make sure to have Node/npm installed on your machine.
@@ -88,7 +110,7 @@ gatsby develop
 
 4. The project should now be deployed and accessible through `http://localhost:8000/`
 
-**By default the frontend project is set to connect with the Heroku endpoint for authentication. If you are deploying locally, this URL has to be changed. The URL can be found in `frontend/src/utils/auth.js` **
+** By default the frontend project is set to connect with the Heroku endpoint for authentication. **
 
 #### Backend Deploy Instructions
 
