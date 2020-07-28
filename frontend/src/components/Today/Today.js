@@ -1,8 +1,6 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import { AppLayout } from "../Layout"
 import { HabitList } from "./HabitList"
 import HabitStats from "../HabitStats/HabitStats"
 import Backdrop from "../Backdrop"
@@ -38,7 +36,7 @@ const Modal = styled.div`
   }
 `
 
-const Today = ({ path }) => {
+const Today = () => {
   const [showStats, setShowStats] = useState(false)
   const [selectedTitle, setSelectedTitle] = useState("")
 
@@ -50,13 +48,13 @@ const Today = ({ path }) => {
   return (
     <AuthConsumer>
       {context => (
-        <AppLayout path={path}>
+        <div>
           <HabitList
             habits={context.data.habits}
             checkHabit={title => context.checkHabit(title)}
             uncheckHabit={title => context.uncheckHabit(title)}
             handleAddHabit={habitTitle => {
-              context.newHabit(habitTitle)
+              context.addHabit(habitTitle)
             }}
             onViewStats={selectHabit}
           />
@@ -68,14 +66,10 @@ const Today = ({ path }) => {
             onClick={() => setShowStats(false)}
             zIndex={1999}
           />
-        </AppLayout>
+        </div>
       )}
     </AuthConsumer>
   )
-}
-
-Today.propTypes = {
-  path: PropTypes.string.isRequired,
 }
 
 export default Today

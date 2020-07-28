@@ -1,11 +1,12 @@
 import React from "react"
 
-import { AppLayout } from "./Layout"
+import SVG from "../images/underConstruction.svg"
 
-const Journal = ({ path }) => (
-  <AppLayout path={path}>
-    <h1>{`The "Journal" Tab`}</h1>
-  </AppLayout>
+const Journal = () => (
+  <div>
+    <img src={SVG} alt="under construction graphic" width="768"/>
+    <h2 style={{ textAlign: 'center' }}>{`Journal Feature Under Construction`}</h2>
+  </div>
 )
 
 export default Journal
