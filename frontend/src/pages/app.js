@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { Router, Redirect } from "@reach/router"
 
-import Login from "components/Login"
 import PrivateRoute from "components/PrivateRoute"
-import Status from "components/Status"
-
-import Today from "components/Today/Today"
+import TodayPage from "./TodayPage"
 import SettingsPage from "./SettingsPage"
-import Journal from "components/Journal"
+import JournalPage from "./JournalPage"
+import LoginPage from "./LoginPage"
 import { AuthProvider } from "context/auth-context"
 import { isLoggedIn, onLoginSuccess } from "utils/auth"
 import { handleHabitAction, addHabit } from "utils/HabitData"
@@ -48,7 +46,7 @@ const AppHome = () => {
     }
 
     return setLoginData({ token, userId, email, data, preferences })
-  }, [])
+  }, [token, userId, email, data, preferences])
 
   const { token, userId, email, data, preferences } = loginData
 
@@ -60,12 +58,11 @@ const AppHome = () => {
         email,
         data,
         preferences,
-        login: (token, userId, tokenExpiration, email, data, preferences) => {
+        login: (token, userId, email, data, preferences) => {
           setLoginData({ token, userId, email, data, preferences })
           onLoginSuccess(
             token,
             userId,
-            tokenExpiration,
             email,
             data,
             preferences
@@ -74,7 +71,7 @@ const AppHome = () => {
         logout: () => {
           setLoginData(initState)
         },
-        newHabit: title => {
+        addHabit: title => {
           const updatedHabits = addHabit(title)
           setLoginData({
             ...loginData,
@@ -149,13 +146,14 @@ const AppHome = () => {
         },
       }}
     >
-      <Status />
       <Router>
         {token && <Redirect from="/app/login" to="/app" exact noThrow />}
-        <PrivateRoute path="/app" component={Today} />
-        <PrivateRoute path="/app/journal" component={Journal} />
+        {token && <Redirect from="/app/sign-up" to="/app" exact noThrow />}
+        <PrivateRoute path="/app" component={TodayPage} />
+        <PrivateRoute path="/app/journal" component={JournalPage} />
         <PrivateRoute path="/app/settings" component={SettingsPage} />
-        <Login path="/app/login" />
+        <LoginPage path="/app/login" />
+        <LoginPage signUp path="/app/sign-up" />
       </Router>
     </AuthProvider>
   )
