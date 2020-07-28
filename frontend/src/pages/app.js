@@ -46,7 +46,7 @@ const AppHome = () => {
     }
 
     return setLoginData({ token, userId, email, data, preferences })
-  }, [token, userId, email, data, preferences])
+  }, [])
 
   const { token, userId, email, data, preferences } = loginData
 
