@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
 
 import { AppHeader, FooterNav } from "./"
-import "../landing/layout.css"
+import "../Landing/layout.css"
 import "./layout.scss"
 
 const AppLayout = ({ children, path }) => {
@@ -13,7 +13,7 @@ const AppLayout = ({ children, path }) => {
   } else if (page === "settings") {
     page = "Settings"
   } else {
-    page = "Your Journal"
+    page = "Journal"
   }
   return (
     <>
@@ -32,7 +32,7 @@ const AppLayout = ({ children, path }) => {
         >
           <main>{children}</main>
         </div>
-        <FooterNav currentPage={page} />
+        <FooterNav currentPage={page} path={path} />
       </ThemeProvider>
     </>
   )

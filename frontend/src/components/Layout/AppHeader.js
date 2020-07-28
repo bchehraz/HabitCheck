@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -7,6 +6,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 2rem;
   background: white;
+  user-select: none;
 
   @media only screen and (min-width: 768px) {
     p {

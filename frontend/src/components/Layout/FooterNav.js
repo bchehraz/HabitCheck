@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { FiCheckSquare, FiSettings } from "react-icons/fi"
-import { FaChartArea, FaBookOpen } from "react-icons/fa"
 import _ from "lodash"
+import { FiCheckSquare, FiSettings } from "react-icons/fi"
+import { FaBookOpen } from "react-icons/fa"
 
 const Container = styled.div`
   width: 100%;
@@ -51,14 +51,22 @@ const Tab = styled.div`
   align-content: center;
 
   ${({ active }) => !active && "padding-top: 0.5rem;"}
-  ${({ active }) =>
-    !active && "opacity: 0.8;"}
+  ${({ active }) => !active && "opacity: 0.8;"}
 
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
+    transition: all 150ms ease-out;
+
+  .icon {
+    height: 32px;
+    width: 32px;
+
+    transition: all 150ms ease-out;
+  }
+
+  .icon.active {
+    height: 40px;
+    width: 40px;
+    transition: all 150ms ease-out;
+  }
 `
 
 const TabSelection = styled.div`
@@ -78,9 +86,9 @@ const TabSelection = styled.div`
 const getTabIcon = isActive => {
   const size = isActive ? 40 : 32
   return {
-    Settings: <FiSettings size={size} />,
-    Today: <FiCheckSquare size={size} className="todayIcon" />,
-    "Your Journal": <FaBookOpen size={size} className="journalIcon" />,
+    Settings: <FiSettings className={`icon ${isActive && "active"}`} />,
+    Today: <FiCheckSquare className={`icon ${isActive && "active"}`} />,
+    "Journal": <FaBookOpen className={`icon ${isActive && "active"}`} />,
   }
 }
 
@@ -99,8 +107,8 @@ const FooterNav = ({ currentPage }) => {
   return (
     <Container>
       <Navigation className="footer">
+      <Link to="/app/journal">{getTab(currentPage, "Journal")}</Link>
         <Link to="/app/">{getTab(currentPage, "Today")}</Link>
-        <Link to="/app/journal">{getTab(currentPage, "Your Journal")}</Link>
         <Link to="/app/settings">{getTab(currentPage, "Settings")}</Link>
       </Navigation>
     </Container>
