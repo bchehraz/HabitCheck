@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types"
 
-import Layout from "../components/Landing/Layout"
+import Layout from "../components/landing/Layout"
 import { Login } from "../components/Login"
 
 const LoginPage = ({ signUp }) => (
