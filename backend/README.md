@@ -8,6 +8,8 @@ The purpose of the GraphQL Server for HabitCheck is to allow users to authentica
 
 ### Currently Available Endpoints:
 
+As you can see in `/graphql/schema/index.js` I am currently building the data structure for the entire project which include storing habits and their data. However, at the moment only 2 endpoints are successfully working and being utilized by the front-end client.
+
 ```
 login(email: String!, password: String!): AuthData!
 createUser(userInput: { email: String!, password: String! }): AuthData!
@@ -23,4 +25,4 @@ type AuthData {
 }
 ```
 
-Then the generated token will be used to gain access to other endpoints on the server (which are currently under construction). Token generation and decryption to get userId are working!
+After authenticating through login or account creation, the generated token will be required as an auth header (as a bearer token) to gain access to other endpoints on the server (which are currently under construction). Token generation and decryption to get userId are working!
