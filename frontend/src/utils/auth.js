@@ -93,7 +93,7 @@ export const logout = callback => {
 }
 
 const callAuthAPI = async (requestBody) => {
-  return await fetch('http://localhost:3000/graphql', {
+  return await fetch('https://habit-check.herokuapp.com/graphql', {
     method: 'POST',
     body: JSON.stringify(requestBody),
     headers: {
