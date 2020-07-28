@@ -1,10 +1,12 @@
 import React from "react"
+
 import { AppLayout } from "../components/Layout"
+import Settings from "../components/Settings"
 
 const SettingsPage = ({ path }) => {
   return (
     <AppLayout path={path}>
-      <h3>{`User Settings`}</h3>
+      <Settings />
     </AppLayout>
   )
 }
