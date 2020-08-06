@@ -5,6 +5,7 @@ export const isResponseOk = res => {
 }
 
 export const dateToUTC = date => {
+  date.setHours(0, 0, 0, 0)
   return Date.UTC(
     date.getFullYear(),
     date.getMonth(),

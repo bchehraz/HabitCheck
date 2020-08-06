@@ -1,5 +1,7 @@
 import { isBrowser, isResponseOk } from "./helpers"
 
+import { updateHabits } from "./HabitData"
+
 const getUser = () => {
   if (window.localStorage.loginState) {
     const loginState = JSON.parse(window.localStorage.loginState)
@@ -140,19 +142,23 @@ export const login = async (email, password) => {
     // return;
 
     /* temporary fix to fetch data from client until backend is fully completed */
-    const habits = getHabitData(data.login.userId)
+    const habits = { ...getHabitData(data.login.userId) }
 
     data.login = {
       ...data.login,
       email,
       data: {
-        habits
+        habits: {
+          ...habits
+        }
       },
       preferences: {
         darkMode: false,
         xEffectView: false
       },
     }
+
+    data.login.data.habits = { ...updateHabits(data.login.data.habits) }
 
     return data.login
   } catch (err) {
@@ -206,9 +212,11 @@ export const createUser = async (email, password) => {
       }
     }
 
+    data.createUser.data.habits = { ...updateHabits(data.createUser.data.habits) }
+
     return data.createUser;
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    console.log(err);
     return false;
   }
 }
